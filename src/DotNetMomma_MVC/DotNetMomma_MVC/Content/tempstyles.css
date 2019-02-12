@@ -1,0 +1,444 @@
+﻿body {
+    margin: 0;
+    font-family: "Lucida Grande";
+}
+
+a {
+    text-decoration: none;
+}
+/* header styles */
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1080px;
+}
+
+header {
+    /* background-color:#4d4dff; */
+    background-color: #233656;
+    color: #fff;
+    /* height: 55px; */
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.header-left {
+    float: left;
+    height: 100%;
+    padding-left: 16px;
+}
+
+.header-right {
+    float: right;
+    height: 100%;
+    padding-right: 16px;
+}
+
+.header-logo {
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.navbar {
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+.navbar-items {
+    margin-right: auto;
+    display: flex;
+}
+
+.navbar-links {
+    padding-right: 8px;
+    width: 100px;
+    line-height: 55px;
+    text-align: center;
+}
+
+    .navbar-links a {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+        .navbar-links a:visited {
+            color: white;
+        }
+
+        .navbar-links a:hover {
+            background-color: navy;
+        }
+
+
+
+
+
+
+/* main styles */
+
+.banner-wrapper {
+    width: 100%;
+    padding-top: 100px;
+    background-image: url("../images/banner-background.jpg");
+    height: 245px;
+    background-size: cover;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.text-content {
+    float: left;
+}
+
+.image-content {
+    float: left;
+    padding-right: 30px;
+}
+
+.text-content h1 {
+    font-size: 40px;
+    letter-spacing: 5px;
+    font-family: 'Luckiest Guy', cursive;
+    color: #000066;
+}
+
+.sub-heading {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+}
+
+.image-content img {
+    width: 300px;
+    opacity: 0.8;
+}
+
+/* Menu */
+.menu-wrapper {
+    padding-top: 40px;
+    width: 100%;
+    padding-bottom: 100px;
+    background-color: #e6ffff;
+    height: 100vh;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .menu-items a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+.item-box {
+    display: flex;
+    box-shadow: 3px 3px grey;
+    border-radius: 15%;
+    height: 150px;
+    padding: 10px;
+    color: white;
+    opacity: 0.7;
+    width: 300px;
+    align-items: center;
+    margin: 10px;
+    justify-content: center;
+}
+
+    .item-box a:visited {
+        color: white;
+    }
+
+    .item-box:hover {
+        opacity: 0.5;
+    }
+
+    .item-box:active {
+        position: relative;
+        top: 3px;
+        left: 3px;
+        box-shadow: none;
+    }
+
+.tools {
+    background-color: purple;
+}
+
+.training {
+    background-color: green;
+}
+
+.kids {
+    background-color: blue;
+}
+
+.item-box .icons {
+    font-size: 45px;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.item-desc {
+    font-size: 30px;
+    font-family: 'Luckiest Guy', cursive;
+    align-items: center;
+    line-height: 45px;
+}
+
+/* page header styles */
+.section-heading {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+    margin-top: 50px;
+}
+
+    .section-heading .fas {
+        margin-right: 10px;
+    }
+
+.pageheader-wrapper {
+    width: 100%;
+    padding-top: 100px;
+    background-image: url("../images/banner-background.jpg");
+    height: 150px;
+    background-size: cover;
+    text-align: center;
+    opacity: 0.7;
+}
+
+    .pageheader-wrapper .image-content img {
+        width: 200px;
+        opacity: 0.8;
+    }
+/* Blog */
+
+.blog-header {
+    display: flex;
+    margin-top: 50px;
+}
+
+.blog-picture {
+    flex: 1;
+}
+
+    .blog-picture img {
+        width: 200px;
+        ;
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.blog-description {
+    flex: 2;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 25px;
+    margin: auto 0;
+}
+
+.blog-text {
+    font-size: 20px;
+}
+
+.blog-content {
+    padding-bottom: 50px;
+}
+
+/* Tools */
+
+
+.tools-wrapper {
+    padding-bottom: 50px;
+}
+
+    .tools-wrapper p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+    }
+
+.tools-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.tool-list-wrapper {
+    flex-basis: 48%;
+}
+
+.tool-header-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #415B76;
+    border-radius: 1rem;
+    border: 2px solid #415B76;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    color: #EEF4F2;
+}
+
+.tool-header-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tool-header .fas {
+    margin-right: .7rem;
+}
+
+.tool-header, .links-wrapper h1 {
+    font-size: 1rem;
+    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Luckiest Guy', cursive; */
+    letter-spacing: .2rem;
+}
+
+.tool-header {
+    /* padding-top: 50px; */
+    flex-basis: 90%;
+}
+
+.tool-button {
+    flex-basis: 10%;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.toollist {
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+    border: 2px solid #415B76;
+    background-color: #CDD6D5;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: .5rem;
+}
+
+.open-toollist {
+    display: block;
+}
+
+.tool {
+    /* vertical-align: top; */
+    height: 75px;
+    flex-basis: 48%;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.toollist .icons {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.tool img {
+    width: 200px;
+    display: none;
+}
+
+.tool a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+}
+
+    .tool a:visited {
+        color: black;
+    }
+
+    .tool a:hover {
+        /* color: white; */
+        color: #415B76;
+    }
+
+.tool item-desc {
+    line-height: 75px;
+}
+/* contact form */
+.contact-wrapper {
+    padding-bottom: 50px;
+}
+
+.form-field {
+    padding: 10px;
+}
+
+/* tooltip */
+/* w3C Schools - https://www.w3schools.com/howto/howto_css_tooltip.asp */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 80%;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+/* footer styles */
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: #4d4dff;
+    display: none;
+}
