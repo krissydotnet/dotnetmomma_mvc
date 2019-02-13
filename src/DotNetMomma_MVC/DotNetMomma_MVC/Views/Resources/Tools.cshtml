@@ -1,14 +1,47 @@
-﻿@model IEnumerable<DotNetMomma_MVC.Models.Resource>
+﻿@model IEnumerable<DotNetMomma_MVC.Models.Category>
+
 
 @{
-    ViewBag.Title = "Tools";
+
 }
+    <div class="banner">
 
-<h2>Tools</h2>
+        <h1>Tools</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    </div>
+    <div class="tools-wrapper">
+        <div class="container">
+            <div class="section-heading">
+                <span class="fas fa-terminal"></span>Behind every great
+                programmer/developer is a great toolbox.
+            </div>
 
 
-@Html.Partial("_BuildResourceList")
+        </div>
+
+    </div>
+    <div class="tools-wrapper">
+        <div class="container-fluid">
+
+            <div class="row">
+                @foreach (var category in Model)
+                {
+                <div class="col-lg-6 col-md-12">
+                    @Html.Partial("_BuildList", category)
+                </div>
+                }
+
+            </div>
+            <div class="row">
+ 
+
+            </div>
+
+        </div>
+    </div>
+
+    @section scripts {
+
+        <script src="~/Scripts/scripts.js"></script>
+
+    }

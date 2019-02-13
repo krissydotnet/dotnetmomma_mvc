@@ -61,10 +61,10 @@ textarea {
         float: left;
         padding-right: 30px;
     }
-        .jumbotron .image-content img {
-            width: 300px;
-            opacity: 0.8;
-        }
+.jumbotron .image-content img {
+    width: 300px;
+    opacity: 0.8;
+}
     .jumbotron .sub-heading {
         font-family: 'Roboto Mono', monospace;
         font-size: 25px;
@@ -118,3 +118,126 @@ textarea {
     background-color: blue;
 }
 
+/* page header styles */
+.section-heading {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+    margin-top: 50px;
+}
+
+    .section-heading .fas {
+        margin-right: 10px;
+    }
+/* Tools */
+
+
+.tools-wrapper {
+    padding-bottom: 50px;
+}
+
+    .tools-wrapper p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+    }
+
+
+
+
+.tool-header-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #415B76;
+    border-radius: 1rem;
+    border: 2px solid #415B76;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    color: #EEF4F2;
+}
+
+.tool-header-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tool-header .fas {
+    margin-right: .7rem;
+}
+
+.tool-header, .links-wrapper h1 {
+    font-size: 1rem;
+    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Luckiest Guy', cursive; */
+    letter-spacing: .2rem;
+}
+
+.tool-header {
+    /* padding-top: 50px; */
+    flex-basis: 90%;
+}
+
+.tool-button {
+    flex-basis: 10%;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.toollist {
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+    border: 2px solid #415B76;
+    background-color: #CDD6D5;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: .5rem;
+}
+
+.open-toollist {
+    display: block;
+}
+
+.tool {
+    /* vertical-align: top; */
+    height: 75px;
+    flex-basis: 48%;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.toollist .icons {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.tool img {
+    width: 200px;
+    display: none;
+}
+
+.tool a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+}
+
+    .tool a:visited {
+        color: black;
+    }
+
+    .tool a:hover {
+        /* color: white; */
+        color: #415B76;
+    }
+
+.tool item-desc {
+    line-height: 75px;
+}

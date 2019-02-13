@@ -13,9 +13,18 @@ namespace DotNetMomma_MVC.Models
         /// </summary>
         public enum CategoryType
         {
-            Tools = 1,
-            Training = 2,
-            Kids = 3,
+            Design_Tools = 1,
+            Code_Editors = 2,
+            Communities = 3,
+            Code_Validators = 4,
+            Online_Guides = 5,
+            Style_Guides = 6,
+            Cheat_Sheet = 7,
+            Free_Resources = 8,
+            Paid_Resources = 9,
+            Miscellaneous = 10,
+            Games = 11,
+            Tutorials = 12
         }
 
         /// <summary>
@@ -29,7 +38,7 @@ namespace DotNetMomma_MVC.Models
 
             // If we don't have a name argument, 
             // then use the string representation of the activity type for the name.
-            Name = name ?? categoryType.ToString();
+            Name = name ?? categoryType.ToString().Replace("_"," ");
         }
 
         /// <summary>

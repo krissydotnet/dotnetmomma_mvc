@@ -21,27 +21,27 @@ namespace DotNetMomma_MVC.Controllers
         public ActionResult Index()
         {
             List<Resource> resources = _resourcesRepository.GetResources();
-
             return View(resources);
         }
 
         // GET: Resources Tools
         public ActionResult Tools()
         {
-            List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.CategoryId == (int)Category.CategoryType.Tools).ToList();
-            return View(resources);
+            //List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.SectionId == (int)Section.SectionType.Tools).ToList();
+           // List<Category> categories = _resourcesRepository.GetCategories().ToList();
+            return View(Data.Data.Categories);
         }
 
         // GET: Resources Training
         public ActionResult Training()
         {
-            List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.CategoryId == (int)Category.CategoryType.Training).ToList();
+            List<Resource> resources = _resourcesRepository.GetResources().Where(x =>  x.SectionId == (int)Section.SectionType.Training).ToList();
             return View(resources);
         }
         // GET: Resources Kids
         public ActionResult Kids()
         {
-            List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.CategoryId == (int)Category.CategoryType.Kids).ToList();
+            List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.SectionId == (int)Section.SectionType.Kids).ToList();
             return View(resources);
         }
 

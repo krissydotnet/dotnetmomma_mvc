@@ -8,6 +8,7 @@ namespace DotNetMomma_MVC.Data
 {
     public class ResourcesRepository
     {
+
         /// <summary>
         /// Returns a collection of resources.
         /// </summary>
@@ -16,12 +17,12 @@ namespace DotNetMomma_MVC.Data
         {
             return Data.Resources
                 .Join(
-                    Data.Categories,  // The inner collection
-                    e => e.CategoryId, // The outer selector
+                    Data.Sections,  // The inner collection
+                    e => e.SectionId, // The outer selector
                     a => a.Id, // The inner selector
                     (e, a) => // The result selector
                     {
-                        e.Category = a; // Set the resource's Category property
+                        e.Section = a; // Set the resource's Section property
                         return e; // Return the resource
                     }
                     )
@@ -40,6 +41,12 @@ namespace DotNetMomma_MVC.Data
             Resource resource = Data.Resources
                 .Where(e => e.Id == id)
                 .SingleOrDefault();
+            if (resource.Section == null)
+            {
+                resource.Section = Data.Sections
+                    .Where(a => a.Id == resource.SectionId)
+                    .SingleOrDefault();
+            }
             if (resource.Category == null)
             {
                 resource.Category = Data.Categories
@@ -49,7 +56,26 @@ namespace DotNetMomma_MVC.Data
 
             return resource;
         }
+        public Resource GetResourceByCategory(int id)
+        {
+            Resource resource = Data.Resources
+                .Where(e => e.CategoryId == id)
+                .SingleOrDefault();
+            if (resource.Section == null)
+            {
+                resource.Section = Data.Sections
+                    .Where(a => a.Id == resource.SectionId)
+                    .SingleOrDefault();
+            }
+            if (resource.Category == null)
+            {
+                resource.Category = Data.Categories
+                    .Where(a => a.Id == resource.CategoryId)
+                    .SingleOrDefault();
+            }
 
+            return resource;
+        }
         public void AddResource(Resource resource)
         {
             int nextAvailableResourceId = Data.Resources
