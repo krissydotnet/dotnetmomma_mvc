@@ -8,13 +8,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A229BFF9-E40E-4153-8211-60BA7A2DB4CD}</ProjectGuid>
+    <ProjectGuid>{42148184-642D-475B-9108-FA3FF57C1842}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DotNetMomma_MVC</RootNamespace>
-    <AssemblyName>DotNetMomma_MVC</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <RootNamespace>DotNetMommaAdmin</RootNamespace>
+    <AssemblyName>DotNetMommaAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -178,34 +178,26 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
-    <Compile Include="Data\Data.cs" />
-    <Compile Include="Data\ResourcesRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CategoryViewModel.cs" />
-    <Compile Include="Models\Section.cs" />
-    <Compile Include="Models\SubCategory.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ResourcesAddViewModel.cs" />
+    <Compile Include="ViewModels\ResourcesBaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\tempstyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\banner-background.jpg" />
-    <Content Include="Images\pexels-photo-169573.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -219,7 +211,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -255,15 +246,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Resources\Index.cshtml" />
-    <Content Include="Views\Resources\_BuildResourceList.cshtml" />
-    <Content Include="Views\Resources\Tools.cshtml" />
-    <Content Include="Views\Resources\Training.cshtml" />
-    <Content Include="Views\Resources\Kids.cshtml" />
-    <Content Include="Views\Resources\_BuildList.cshtml" />
+    <Content Include="Views\Resources\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -280,7 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNetMommaShared\DotNetMommaShared.csproj">
-      <Project>{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}</Project>
+      <Project>{612c99ec-7647-4bfb-a5a6-ad2a82d9659e}</Project>
       <Name>DotNetMommaShared</Name>
     </ProjectReference>
   </ItemGroup>
@@ -300,9 +286,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60375</DevelopmentServerPort>
+          <DevelopmentServerPort>53757</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60375/</IISUrl>
+          <IISUrl>http://localhost:53757/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

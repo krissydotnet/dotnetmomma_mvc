@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMomma_MVC", "DotNetMomma_MVC\DotNetMomma_MVC.csproj", "{A229BFF9-E40E-4153-8211-60BA7A2DB4CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMommaAdmin", "DotNetMommaAdmin\DotNetMommaAdmin.csproj", "{42148184-642D-475B-9108-FA3FF57C1842}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMommaShared", "DotNetMommaShared\DotNetMommaShared.csproj", "{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A229BFF9-E40E-4153-8211-60BA7A2DB4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A229BFF9-E40E-4153-8211-60BA7A2DB4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A229BFF9-E40E-4153-8211-60BA7A2DB4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42148184-642D-475B-9108-FA3FF57C1842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42148184-642D-475B-9108-FA3FF57C1842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42148184-642D-475B-9108-FA3FF57C1842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42148184-642D-475B-9108-FA3FF57C1842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612C99EC-7647-4BFB-A5A6-AD2A82D9659E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
