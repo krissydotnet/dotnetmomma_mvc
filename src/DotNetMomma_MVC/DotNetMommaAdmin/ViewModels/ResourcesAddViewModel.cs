@@ -14,9 +14,9 @@ namespace DotNetMommaAdmin.ViewModels
 
         }
 
-        public override void Init(Repository repository)
+        public override void Init(Repository repository, SectionsRepository sectionsRepository)
         {
-            base.Init(repository);
+            base.Init(repository, sectionsRepository);
             
         }
     }

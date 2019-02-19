@@ -15,12 +15,6 @@ namespace DotNetMommaShared.Data
             _context = context;
         }
 
-        public IList<Section> GetSections()
-        {
-            return _context.Sections
-                .OrderBy(s => s.Name)
-                .ToList();
-        }
 
         public IList<Category> GetCategories()
         {

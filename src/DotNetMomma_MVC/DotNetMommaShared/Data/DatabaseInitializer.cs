@@ -83,6 +83,7 @@ namespace DotNetMommaShared.Data
                 Id = 11,
                 Name = "Miscellaneous"
             });
+            context.SaveChanges();
         }
     }
 }

@@ -19,10 +19,10 @@ namespace DotNetMommaAdmin.ViewModels
         ///  Initializes the view model.
         /// </summary>
         
-        public virtual void Init(Repository repository)
+        public virtual void Init(Repository repository, SectionsRepository sectionsRepository)
         {
             SectionSelectListItems = new SelectList(
-                repository.GetSections(), 
+                sectionsRepository.GetList(includeRelatedEntities: false), 
                 "Id", "Name");
 
             CategorySelectListItems = new SelectList(

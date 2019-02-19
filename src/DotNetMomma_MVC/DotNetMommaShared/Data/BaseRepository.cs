@@ -19,7 +19,7 @@ namespace DotNetMommaShared.Data
         }
 
         public abstract TEntity Get(int id, bool includeRelatedEntities = true);
-        public abstract IList<TEntity> GetList();
+        public abstract IList<TEntity> GetList(bool includeRelatedEntities = true);
 
         public void Add(TEntity entity)
         {

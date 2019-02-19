@@ -13,11 +13,17 @@ namespace DotNetMommaShared.Data
     /// </summary>
     public class Context : DbContext
     {
+        public Context()
+        {
+            Database.SetInitializer(new DatabaseInitializer());
+        }
+
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Technology> Technologies { get; set; }
         public DbSet<ResourceTechnologies> ResourceTechnologies { get; set; }
+
 
     }
 }

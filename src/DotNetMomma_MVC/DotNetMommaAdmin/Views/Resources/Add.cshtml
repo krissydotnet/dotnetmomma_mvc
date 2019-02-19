@@ -1,0 +1,28 @@
+﻿@model DotNetMommaAdmin.ViewModels.ResourcesAddViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Resource</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <h3>Main Information</h3>
+    @Html.Partial("_ResourceForm")
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

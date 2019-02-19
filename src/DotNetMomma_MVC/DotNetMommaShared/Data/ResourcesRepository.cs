@@ -29,16 +29,25 @@ namespace DotNetMommaShared.Data
                 .SingleOrDefault();
         }
 
-        public override IList<Resource> GetList()
+        public override IList<Resource> GetList(bool includeRelatedEntities = true)
         {
-            return Context.Resources
+            var resources = Context.Resources.AsQueryable();
+            if (includeRelatedEntities)
+            {
+                resources = resources
+                    .Include(r => r.Section)
+                    .Include(r => r.Category);
+            }
+            return resources
                 .OrderBy(s => s.Name)
                 .ToList();
         }
-        public bool LinkAlreadyExists(string resourceUrl, int sectionId)
+        public bool LinkAlreadyExists(int resourceId, string resourceUrl, int sectionId)
         {
             return Context.Resources
-                .Any(r => r.URL == resourceUrl && r.SectionId == sectionId);
+                .Any(r => r.Id != resourceId &&
+                r.URL == resourceUrl && 
+                r.SectionId == sectionId);
         }
     }
 }
