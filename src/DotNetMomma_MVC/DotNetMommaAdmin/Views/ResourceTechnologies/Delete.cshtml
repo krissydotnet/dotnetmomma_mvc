@@ -1,0 +1,44 @@
+﻿@model DotNetMommaShared.Models.ResourceTechnologies
+
+@{
+    ViewBag.Title = "Delete Resource Technology";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ResourceTechnologies</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Resource.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resource.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Technology.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Technology.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="pad-top">
+            <button type="submit" class="btn btn-danger btn-lg margin-right">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <a href="@Url.Action("Detail", "Resources", new { id = Model.ResourceId })" class="btn btn-warning btn-lg">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+            </a>
+        </div>
+    }
+</div>

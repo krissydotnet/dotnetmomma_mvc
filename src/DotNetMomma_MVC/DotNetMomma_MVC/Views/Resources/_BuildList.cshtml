@@ -1,4 +1,4 @@
-﻿@model DotNetMomma_MVC.Models.Category
+﻿@model DotNetMommaShared.Models.Category
 
 
 
@@ -13,13 +13,13 @@
         </div>
         <div class="toollist">
 
-            @*@foreach (var item in Model)
+           @foreach (var item in Model.Resources)
             {
                 <div class="tool">
                     <a href="@item.URL" target="_blank">
                         <p class="description">@item.Name</p>
                     </a>
                 </div>
-            }*@
+            }*
         </div>
     </div>

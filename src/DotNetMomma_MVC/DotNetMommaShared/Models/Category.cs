@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,7 @@ namespace DotNetMommaShared.Models
         /// <summary>
         /// The name of the category.
         /// </summary>
+        [Display(Name = "Category")]
         public string Name { get; set; }
 
         public ICollection<Resource> Resources { get; set; }

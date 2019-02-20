@@ -22,7 +22,7 @@ namespace DotNetMommaShared.Data
                 resources = resources
                     .Include(r => r.Section)
                     .Include(r => r.Category)
-                    .Include(r => r.Technologies);
+                    .Include(r => r.Technologies.Select(t => t.Technology));
             }
             return resources
                 .Where(r => r.Id == id)
@@ -42,12 +42,20 @@ namespace DotNetMommaShared.Data
                 .OrderBy(s => s.Name)
                 .ToList();
         }
+
         public bool LinkAlreadyExists(int resourceId, string resourceUrl, int sectionId)
         {
             return Context.Resources
                 .Any(r => r.Id != resourceId &&
                 r.URL == resourceUrl && 
                 r.SectionId == sectionId);
+        }
+
+        public bool ResourceHasTechnologyAlready(int resourceId, int technologyId)
+        {
+            return Context.ResourceTechnologies
+                .Any(r => r.Id != resourceId &&
+                r.TechnologyId == technologyId);
         }
     }
 }

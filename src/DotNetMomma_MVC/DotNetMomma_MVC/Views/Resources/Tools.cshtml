@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DotNetMomma_MVC.Models.Category>
+﻿@model DotNetMomma_MVC.ViewModels.ResourcesViewModel
 
 
 @{
@@ -24,7 +24,8 @@
         <div class="container-fluid">
 
             <div class="row">
-                @foreach (var category in Model)
+                @*@Html.Partial("_BuildResourceList")*@
+                @foreach (var category in Model.Categories)
                 {
                 <div class="col-lg-6 col-md-12">
                     @Html.Partial("_BuildList", category)

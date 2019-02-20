@@ -1,0 +1,30 @@
+﻿@model DotNetMommaShared.Models.Resource
+<h3>Technology</h3>
+<div class="pull-right">
+    <a href="@Url.Action("Add", "ResourceTechnologies", new { resourceid = Model.Id })" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span> Add Technology
+    </a>
+</div>
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Technology</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var technology in Model.Technologies)
+        {
+            <tr>
+                <td>@technology.Technology.Name</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Delete", "ResourceTechnologies", new { resourceid = Model.Id, id = technology.Id })" class="btn btn-danger btn-xs margin-right">
+                            <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

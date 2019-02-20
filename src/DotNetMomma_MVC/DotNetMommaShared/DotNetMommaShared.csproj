@@ -55,6 +55,7 @@
     <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\ResourcesRepository.cs" />
+    <Compile Include="Data\ResourceTechnologiesRepository.cs" />
     <Compile Include="Data\SectionsRepository.cs" />
     <Compile Include="Data\TechnologyRepository.cs" />
     <Compile Include="Models\Category.cs" />

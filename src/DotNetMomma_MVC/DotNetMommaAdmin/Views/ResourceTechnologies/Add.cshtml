@@ -1,0 +1,40 @@
+﻿@model DotNetMommaAdmin.ViewModels.ResourceTechnologiesAddViewModel
+
+@{
+    ViewBag.Title = "Add Resource Technology";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@Model.Resource.Name</h3>
+
+<p>Select a technology to add to this resource.</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>ResourceTechnologies</h4>
+    <hr />
+    @Html.ValidationSummary("The following errors were found;", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TechnologyId, "TechnologyId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.TechnologyId,
+                Model.TechnologySelectListItems, "", new { @class = "form-control"})
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg margin-right">
+        <span class="glyphicon glyphicon-save"></span> Save
+    </button>
+    <a href="@Url.Action("Details", "Resources", new { id = Model.ResourceId })" class="btn btn-warning btn-lg">
+        <span class="glyphicon glyphicon-remove"></span> Cancel
+    </a>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

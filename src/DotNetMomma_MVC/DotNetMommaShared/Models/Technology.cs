@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,7 @@ namespace DotNetMommaShared.Models
         /// <summary>
         /// The name of the technology.
         /// </summary>
+        [Display(Name="Technology")]
         public string Name { get; set; }
 
         public ICollection<ResourceTechnologies> Resources { get; set; }

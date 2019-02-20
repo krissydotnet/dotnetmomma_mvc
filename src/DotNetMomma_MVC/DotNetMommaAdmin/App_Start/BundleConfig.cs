@@ -24,6 +24,7 @@ namespace DotNetMommaAdmin
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/fontawesome-all.min.css",
                       "~/Content/site.css"));
         }
     }

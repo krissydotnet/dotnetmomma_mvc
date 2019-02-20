@@ -25,6 +25,7 @@ namespace DotNetMommaShared.Models
         /// <summary>
         /// The name of the section.
         /// </summary>
+        [Display(Name = "Section")]
         [Required, StringLength(25)]
         public string Name { get; set; }
 
