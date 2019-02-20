@@ -54,7 +54,7 @@ namespace DotNetMommaShared.Data
         public bool ResourceHasTechnologyAlready(int resourceId, int technologyId)
         {
             return Context.ResourceTechnologies
-                .Any(r => r.Id != resourceId &&
+                .Any(r => r.ResourceId == resourceId &&
                 r.TechnologyId == technologyId);
         }
     }

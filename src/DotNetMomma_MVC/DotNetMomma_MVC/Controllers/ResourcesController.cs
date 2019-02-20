@@ -29,30 +29,60 @@ namespace DotNetMomma_MVC.Controllers
         }
 
         // GET: Resources Tools
-        public ActionResult Tools()
+        public ActionResult Tools(int? id)
         {
        
             ResourcesViewModel viewModel = new ResourcesViewModel();
-            viewModel.Init(_categoryRepository, _resourcesRepository);
+            viewModel.Init(1, _categoryRepository, _resourcesRepository);
 
+            ViewBag.Title = "Tools";
+            if (id != null)
+            {
+                ViewBag.CategoryId = id;
+            }
 
-            //List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.SectionId == (int)Section.SectionType.Tools).ToList();
-           // List<Category> categories = _resourcesRepository.GetCategories().ToList();
             return View(viewModel);
         }
 
         //// GET: Resources Training
-        //public ActionResult Training()
-        //{
-        //    List<Resource> resources = _resourcesRepository.GetResources().Where(x =>  x.SectionId == (int)Section.SectionType.Training).ToList();
-        //    return View(resources);
-        //}
+        public ActionResult Training(int? id)
+        {
+            //ResourcesViewModel viewModel = new ResourcesViewModel();
+            //viewModel.Init(2, _categoryRepository, _resourcesRepository);
+
+            //ViewBag.Title = "Training";
+            //return View(viewModel);
+
+            ResourcesViewModel viewModel = new ResourcesViewModel();
+            viewModel.Init(2, _categoryRepository, _resourcesRepository);
+
+            ViewBag.Title = "Training";
+            if (id != null)
+            {
+                ViewBag.CategoryId = id;
+            }
+
+            return View(viewModel);
+        }
         //// GET: Resources Kids
-        //public ActionResult Kids()
-        //{
-        //    List<Resource> resources = _resourcesRepository.GetResources().Where(x => x.SectionId == (int)Section.SectionType.Kids).ToList();
-        //    return View(resources);
-        //}
+        public ActionResult Kids(int? id)
+        {
+            //ResourcesViewModel viewModel = new ResourcesViewModel();
+            //viewModel.Init(3,  _categoryRepository, _resourcesRepository);
+
+            //ViewBag.Title = "Kids";
+            //return View(viewModel);
+            ResourcesViewModel viewModel = new ResourcesViewModel();
+            viewModel.Init(3, _categoryRepository, _resourcesRepository);
+
+            ViewBag.Title = "Kids";
+            if (id != null)
+            {
+                ViewBag.CategoryId = id;
+            }
+
+            return View(viewModel);
+        }
 
 
         //// GET: Resources/Details/5

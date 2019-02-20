@@ -319,6 +319,7 @@
     <Content Include="Views\ResourceTechnologies\Add.cshtml" />
     <Content Include="Views\ResourceTechnologies\Delete.cshtml" />
     <Content Include="Views\Shared\_TechnologyForm.cshtml" />
+    <Content Include="Views\Shared\_SideBarNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
