@@ -27,22 +27,22 @@ textarea {
     max-width: 280px;
 }
 /* header styles */
-.my-header {
+.nav-custom {
     background-color: #233656;
     color: #fff;
 }
-.my-logo {
-    font-size: 2rem;
-    letter-spacing: 3px;
-    font-family: 'Permanent Marker', cursive;
-}
-.my-nav {
+    .nav-custom .navbar-brand {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        font-family: 'Permanent Marker', cursive;
+    }
+.navbar-custom {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2rem;
 }
-.my-nav li {
-    padding: 0 1rem;
-}
+    .navbar-custom li {
+        padding: 0 1rem;
+    }
 
 
 /* main styles */

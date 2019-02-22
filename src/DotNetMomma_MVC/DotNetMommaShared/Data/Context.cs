@@ -16,6 +16,8 @@ namespace DotNetMommaShared.Data
         public Context()
         {
             Database.SetInitializer(new DatabaseInitializer());
+            //Disable initializer
+            //Database.SetInitializer<Context>(null);
         }
 
         public DbSet<Resource> Resources { get; set; }
@@ -23,7 +25,8 @@ namespace DotNetMommaShared.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Technology> Technologies { get; set; }
         public DbSet<ResourceTechnologies> ResourceTechnologies { get; set; }
-
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostTechnologies> PostTechnologies { get; set; }
 
     }
 }

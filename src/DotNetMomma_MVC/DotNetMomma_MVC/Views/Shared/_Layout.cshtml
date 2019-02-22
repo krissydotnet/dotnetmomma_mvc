@@ -9,18 +9,18 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Luckiest+Guy|Roboto+Mono" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top my-header">
-        @Html.ActionLink("DotNetMomma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand my-logo" })
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav-custom">
+        @Html.ActionLink("DotNetMomma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto my-nav">
-                <li class="nav-item active">@Html.ActionLink("Tools", "Tools", "Resources",null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
-                <li class="nav-item">@Html.ActionLink("Training", "Training", "Resources",null, new { @class = "nav-link" })</li>
-                <li class="nav-item">@Html.ActionLink("Kids", "Kids", "Resources",null, new { @class = "nav-link" })</li>
+            <ul class="navbar-nav mr-auto navbar-custom">
+                <li class="nav-item  @(@ViewBag.Title == "Tools" ? "active" : "")">@Html.ActionLink("Tools", "Tools", "Resources",null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
+                <li class="nav-item @(@ViewBag.Title == "Training" ? "active" : "")">@Html.ActionLink("Training", "Training", "Resources",null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(@ViewBag.Title == "Kids" ? "active" : "")">@Html.ActionLink("Kids", "Kids", "Resources",null, new { @class = "nav-link" })</li>
 
             </ul>
             
