@@ -11,14 +11,14 @@ namespace DotNetMommaShared.Models
     {
         public PostCategory()
         {
-            PostCategories = new List<PostCategory>();
+            Posts = new List<Post>();
         }
         public int Id { get; set; }
         [Display(Name = "Category")]
         public string Name { get; set; }
         public string UrlSlug { get; set; }
 
-        public ICollection<PostCategory> PostCategories{ get; set; }
+        public ICollection<Post> Posts{ get; set; }
 
     }
 }

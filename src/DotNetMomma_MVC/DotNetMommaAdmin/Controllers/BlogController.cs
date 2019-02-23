@@ -37,7 +37,7 @@ namespace DotNetMommaAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            post.Technologies = post.Technologies.OrderBy(t => t.Technology.Name).ToList();
+            post.Tags = post.Tags.OrderBy(t => t.Tag.Name).ToList();
 
             return View(post);
         }

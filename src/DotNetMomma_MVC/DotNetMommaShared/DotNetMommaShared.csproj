@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201902221754533_ChangedSeedMethod.Designer.cs">
       <DependentUpon>201902221754533_ChangedSeedMethod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902231509114_AddedPostCategoryAndTags.cs" />
+    <Compile Include="Migrations\201902231509114_AddedPostCategoryAndTags.Designer.cs">
+      <DependentUpon>201902231509114_AddedPostCategoryAndTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Category.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902221754533_ChangedSeedMethod.resx">
       <DependentUpon>201902221754533_ChangedSeedMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231509114_AddedPostCategoryAndTags.resx">
+      <DependentUpon>201902231509114_AddedPostCategoryAndTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

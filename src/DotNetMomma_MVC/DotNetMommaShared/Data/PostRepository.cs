@@ -20,7 +20,7 @@ namespace DotNetMommaShared.Data
             if (includeRelatedEntities)
             {
                 posts = posts
-                    .Include(r => r.Technologies.Select(t => t.Technology));
+                    .Include(r => r.Tags.Select(t => t.Tag));
             }
             return posts
                 .Where(r => r.Id == id)
@@ -34,7 +34,7 @@ namespace DotNetMommaShared.Data
             if (includeRelatedEntities)
             {
                 posts = posts
-                    .Include(r => r.Technologies.Select(t => t.Technology));
+                    .Include(r => r.Tags.Select(t => t.Tag));
             }
             return posts
                 .OrderBy(s => s.PostedOn)
