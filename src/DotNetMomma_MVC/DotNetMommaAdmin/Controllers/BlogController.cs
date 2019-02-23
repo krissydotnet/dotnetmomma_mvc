@@ -47,7 +47,7 @@ namespace DotNetMommaAdmin.Controllers
             var post = new Post();
             return View(post);
         }
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Add(Post post)
         {
@@ -59,7 +59,7 @@ namespace DotNetMommaAdmin.Controllers
                 _postRepository.Add(post);
 
                 TempData["Message"] = "Your post was successfully added.";
-
+               
                 return RedirectToAction("Details", new { id = post.Id });
             }
 

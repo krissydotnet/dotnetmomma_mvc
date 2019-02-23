@@ -43,3 +43,12 @@ textarea {
     .my-nav li:hover {
         background-color: navy;
     }
+.post-title {
+    width: 50rem;
+    max-width: 50rem;
+}
+.post-text {
+    width: 50rem;
+    height: 80rem;
+    max-width: 50rem;
+}

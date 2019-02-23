@@ -37,9 +37,31 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,7 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\CategoryRepository.cs" />
     <Compile Include="Data\Context.cs" />
@@ -59,18 +80,44 @@
     <Compile Include="Data\ResourceTechnologiesRepository.cs" />
     <Compile Include="Data\SectionsRepository.cs" />
     <Compile Include="Data\TechnologyRepository.cs" />
+    <Compile Include="Migrations\201902211513169_InitialCreate.cs" />
+    <Compile Include="Migrations\201902211513169_InitialCreate.Designer.cs">
+      <DependentUpon>201902211513169_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902221739436_ChangePostModel.cs" />
+    <Compile Include="Migrations\201902221739436_ChangePostModel.Designer.cs">
+      <DependentUpon>201902221739436_ChangePostModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902221754533_ChangedSeedMethod.cs" />
+    <Compile Include="Migrations\201902221754533_ChangedSeedMethod.Designer.cs">
+      <DependentUpon>201902221754533_ChangedSeedMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\PostTechnologies.cs" />
+    <Compile Include="Models\PostCategory.cs" />
+    <Compile Include="Models\PostTags.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Models\ResourceTechnologies.cs" />
     <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Technology.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902211513169_InitialCreate.resx">
+      <DependentUpon>201902211513169_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902221739436_ChangePostModel.resx">
+      <DependentUpon>201902221739436_ChangePostModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902221754533_ChangedSeedMethod.resx">
+      <DependentUpon>201902221754533_ChangedSeedMethod.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

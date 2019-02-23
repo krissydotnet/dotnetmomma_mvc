@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace DotNetMommaShared.Models
 {
-    public class PostTechnologies
+    public class PostTags
     {
         public int Id { get; set; }
         [Display(Name = "Post")]
         public int PostId { get; set; }
-        [Display(Name = "Technology")]
-        public int TechnologyId { get; set; }
+        [Display(Name = "Tag")]
+        public int TagId { get; set; }
 
         public Post Post { get; set; }
-        public Technology Technology { get; set; }
+        public Tag Tag { get; set; }
     }
 }
