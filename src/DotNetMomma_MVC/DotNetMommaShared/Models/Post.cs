@@ -13,6 +13,7 @@ namespace DotNetMommaShared.Models
         public Post()
         {
             Tags = new List<PostTags>();
+            PostedOn = DateTime.Now;
         }
         public int Id { get; set; }
         public int PostCategoryId { get; set; }

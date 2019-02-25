@@ -191,8 +191,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PostAddViewModel.cs" />
     <Compile Include="ViewModels\ResourcesAddViewModel.cs" />
+    <Compile Include="ViewModels\PostBaseViewModel.cs" />
     <Compile Include="ViewModels\ResourcesBaseViewModel.cs" />
+    <Compile Include="ViewModels\PostEditViewModel.cs" />
     <Compile Include="ViewModels\ResourcesEditViewModel.cs" />
     <Compile Include="ViewModels\ResourceTechnologiesAddViewModel.cs" />
   </ItemGroup>
@@ -323,9 +326,10 @@
     <Content Include="Views\Shared\_SideBarNav.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Details.cshtml" />
-    <Content Include="Views\Blog\Add.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\_PostForm.cshtml" />
+    <Content Include="Views\Blog\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

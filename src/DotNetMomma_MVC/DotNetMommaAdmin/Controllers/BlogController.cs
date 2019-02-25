@@ -1,4 +1,5 @@
-﻿using DotNetMommaShared.Data;
+﻿using DotNetMommaAdmin.ViewModels;
+using DotNetMommaShared.Data;
 using DotNetMommaShared.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,14 @@ namespace DotNetMommaAdmin.Controllers
     public class BlogController : BaseController
     {
         private PostRepository _postRepository = null;
+        private TagRepository _tagRepository = null;
+        private PostCategoryRepository _categoryRepository = null;
 
         public BlogController()
         {
             _postRepository = new PostRepository(Context);
+            _tagRepository = new TagRepository(Context);
+            _categoryRepository = new PostCategoryRepository(Context);
         }
 
         // GET: Blog
@@ -42,31 +47,42 @@ namespace DotNetMommaAdmin.Controllers
             return View(post);
         }
 
+        //public ActionResult Add()
         public ActionResult Add()
         {
-            var post = new Post();
-            return View(post);
+            var viewModel = new PostAddViewModel();
+            viewModel.Init(_tagRepository,_categoryRepository);
+
+            return View(viewModel);
         }
+
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult Add(Post post)
+        public ActionResult Add(PostAddViewModel viewModel)
         {
-            ValidatePost(post);
+            ValidatePost(viewModel.Post);
 
             if (ModelState.IsValid)
             {
 
+                var post = viewModel.Post;
+
                 _postRepository.Add(post);
 
                 TempData["Message"] = "Your post was successfully added.";
-               
+
                 return RedirectToAction("Details", new { id = post.Id });
+
+
             }
 
 
-            return View(post);
+            viewModel.Init(_tagRepository, _categoryRepository);
+
+            return View(viewModel);
 
         }
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,17 +95,25 @@ namespace DotNetMommaAdmin.Controllers
                 return HttpNotFound();
             }
 
+            var viewModel = new PostEditViewModel()
+            {
+                Post = post
+            };
 
-            return View(post);
+            viewModel.Init(_tagRepository, _categoryRepository);
+
+            return View(viewModel);
 
         }
         [HttpPost]
-        public ActionResult Edit(Post post)
+        public ActionResult Edit(PostEditViewModel viewModel)
         {
-            ValidatePost(post);
+            ValidatePost(viewModel.Post);
 
             if (ModelState.IsValid)
             {
+                var post = viewModel.Post;
+
                 _postRepository.Update(post);
 
                 TempData["Message"] = "Your resource was successfully added.";
@@ -97,7 +121,9 @@ namespace DotNetMommaAdmin.Controllers
                 return RedirectToAction("Details", new { id = post.Id });
             }
 
-            return View(post);
+            viewModel.Init(_tagRepository, _categoryRepository);
+
+            return View(viewModel);
 
         }
 
@@ -130,7 +156,8 @@ namespace DotNetMommaAdmin.Controllers
 
         private void ValidatePost(Post post)
         {
-                //TODO: ValidatePost
+            //TODO: ValidatePost
+
         }
 
     }

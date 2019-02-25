@@ -71,14 +71,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\PostCategoryRepository.cs" />
     <Compile Include="Data\CategoryRepository.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\PostRepository.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\ResourcesRepository.cs" />
+    <Compile Include="Data\PostTagsRepository.cs" />
     <Compile Include="Data\ResourceTechnologiesRepository.cs" />
     <Compile Include="Data\SectionsRepository.cs" />
+    <Compile Include="Data\TagRepository.cs" />
     <Compile Include="Data\TechnologyRepository.cs" />
     <Compile Include="Migrations\201902211513169_InitialCreate.cs" />
     <Compile Include="Migrations\201902211513169_InitialCreate.Designer.cs">
@@ -95,6 +98,18 @@
     <Compile Include="Migrations\201902231509114_AddedPostCategoryAndTags.cs" />
     <Compile Include="Migrations\201902231509114_AddedPostCategoryAndTags.Designer.cs">
       <DependentUpon>201902231509114_AddedPostCategoryAndTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902231518481_FixedModelError.cs" />
+    <Compile Include="Migrations\201902231518481_FixedModelError.Designer.cs">
+      <DependentUpon>201902231518481_FixedModelError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902231719500_FixedModelError2.cs" />
+    <Compile Include="Migrations\201902231719500_FixedModelError2.Designer.cs">
+      <DependentUpon>201902231719500_FixedModelError2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902242324478_Changes.cs" />
+    <Compile Include="Migrations\201902242324478_Changes.Designer.cs">
+      <DependentUpon>201902242324478_Changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
@@ -124,6 +139,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902231509114_AddedPostCategoryAndTags.resx">
       <DependentUpon>201902231509114_AddedPostCategoryAndTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231518481_FixedModelError.resx">
+      <DependentUpon>201902231518481_FixedModelError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231719500_FixedModelError2.resx">
+      <DependentUpon>201902231719500_FixedModelError2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902242324478_Changes.resx">
+      <DependentUpon>201902242324478_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

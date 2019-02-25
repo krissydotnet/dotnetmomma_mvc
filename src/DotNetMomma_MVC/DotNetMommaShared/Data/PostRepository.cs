@@ -20,7 +20,8 @@ namespace DotNetMommaShared.Data
             if (includeRelatedEntities)
             {
                 posts = posts
-                    .Include(r => r.Tags.Select(t => t.Tag));
+                        .Include(p => p.PostCategory)
+                        .Include(r => r.Tags.Select(t => t.Tag));
             }
             return posts
                 .Where(r => r.Id == id)
@@ -34,11 +35,37 @@ namespace DotNetMommaShared.Data
             if (includeRelatedEntities)
             {
                 posts = posts
-                    .Include(r => r.Tags.Select(t => t.Tag));
+                    .Include(p => p.PostCategory)
+                    .Include(p => p.Tags.Select(t => t.Tag));
             }
             return posts
-                .OrderBy(s => s.PostedOn)
+                .OrderBy(p => p.PostedOn)
                 .ToList();
+        }
+
+        public IList<Post> Posts(int pageNo, int pageSize)
+        {
+            var posts = Context.Posts
+                                 .Where(p => p.Published)
+                                 .OrderByDescending(p => p.PostedOn)
+                                 .Skip(pageNo * pageSize)
+                                 .Take(pageSize)
+                                 .Include(p => p.PostCategory)
+                                 .ToList();
+            var postIds = posts.Select(p => p.Id).ToList();
+
+            return Context.Posts
+                .Where(p => postIds.Contains(p.Id))
+              .OrderByDescending(p => p.PostedOn)
+              .Include(p => p.Tags.Select(t => t.Tag))
+              .ToList();
+        }
+
+        public int TotalPosts()
+        {
+            return Context.Posts
+                .Where(p => p.Published)
+                .Count();
         }
 
     }

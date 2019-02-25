@@ -11,7 +11,7 @@ namespace DotNetMommaShared.Models
     {
         public Tag()
         {
-            Tags = new List<PostTags>();
+            Posts = new List<PostTags>();
         }
         public int Id { get; set; }
         [Display(Name ="Tag")]
@@ -19,6 +19,6 @@ namespace DotNetMommaShared.Models
         public string UrlSlug { get; set; }
         public string Description { get; set; }
 
-        public ICollection<PostTags> Tags { get; set; }
+        public ICollection<PostTags> Posts { get; set; }
     }
 }

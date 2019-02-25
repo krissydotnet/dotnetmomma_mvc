@@ -28,6 +28,7 @@ namespace DotNetMommaShared.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostTags> PostTags { get; set; }
         public DbSet<PostCategory> PostCategories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
     }
 }
