@@ -18,9 +18,10 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto navbar-custom">
-                <li class="nav-item  @(@ViewBag.Title == "Tools" ? "active" : "")">@Html.ActionLink("Tools", "Tools", "Resources",null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
-                <li class="nav-item @(@ViewBag.Title == "Training" ? "active" : "")">@Html.ActionLink("Training", "Training", "Resources",null, new { @class = "nav-link" })</li>
-                <li class="nav-item @(@ViewBag.Title == "Kids" ? "active" : "")">@Html.ActionLink("Kids", "Kids", "Resources",null, new { @class = "nav-link" })</li>
+                <li class="nav-item  @(@ViewBag.Title == "Tools" ? "active" : "")">@Html.ActionLink("Tools", "Tools", "Resources", null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
+                <li class="nav-item @(@ViewBag.Title == "Training" ? "active" : "")">@Html.ActionLink("Training", "Training", "Resources", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(@ViewBag.Title == "Kids" ? "active" : "")">@Html.ActionLink("Kids", "Kids", "Resources", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(@ViewBag.Title == "Blog" ? "active" : "")">@Html.ActionLink("Blog", "Index", "Blog", null, new { @class = "nav-link" })</li>
 
             </ul>
             

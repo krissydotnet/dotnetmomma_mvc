@@ -50,13 +50,13 @@ namespace DotNetMommaShared.Data
                                  .OrderByDescending(p => p.PostedOn)
                                  .Skip(pageNo * pageSize)
                                  .Take(pageSize)
-                                 .Include(p => p.PostCategory)
                                  .ToList();
             var postIds = posts.Select(p => p.Id).ToList();
 
             return Context.Posts
                 .Where(p => postIds.Contains(p.Id))
               .OrderByDescending(p => p.PostedOn)
+              .Include(p => p.PostCategory)
               .Include(p => p.Tags.Select(t => t.Tag))
               .ToList();
         }

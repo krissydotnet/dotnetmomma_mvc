@@ -1,0 +1,10 @@
+﻿@model DotNetMomma_MVC.ViewModels.BlogViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@Html.Partial("_PostList", Model.Posts)

@@ -10,13 +10,13 @@ using System.Web.Mvc;
 
 namespace DotNetMommaAdmin.Controllers
 {
-    public class BlogController : BaseController
+    public class PostController : BaseController
     {
         private PostRepository _postRepository = null;
         private TagRepository _tagRepository = null;
         private PostCategoryRepository _categoryRepository = null;
 
-        public BlogController()
+        public PostController()
         {
             _postRepository = new PostRepository(Context);
             _tagRepository = new TagRepository(Context);
