@@ -43,14 +43,29 @@ namespace DotNetMommaShared.Data
                 .ToList();
         }
 
-        public IList<Post> Posts(int pageNo, int pageSize)
+        public IList<Post> Posts(int pageNo, int pageSize, int catId)
         {
-            var posts = Context.Posts
-                                 .Where(p => p.Published)
-                                 .OrderByDescending(p => p.PostedOn)
+            var posts = new List<Post>();
+
+            if (catId != 0)
+            {
+                posts = Context.Posts
+                        .Where(p => p.Published && p.PostCategoryId == catId)
+                                .OrderByDescending(p => p.PostedOn)
                                  .Skip(pageNo * pageSize)
                                  .Take(pageSize)
                                  .ToList();
+            } else
+            {
+                posts = Context.Posts
+                        .Where(p => p.Published)
+                                .OrderByDescending(p => p.PostedOn)
+                                 .Skip(pageNo * pageSize)
+                                 .Take(pageSize)
+                                 .ToList();
+            }
+                
+             
             var postIds = posts.Select(p => p.Id).ToList();
 
             return Context.Posts

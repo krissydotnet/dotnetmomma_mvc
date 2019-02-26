@@ -20,9 +20,9 @@ namespace DotNetMomma_MVC.Controllers
         }
 
         // GET: Blog
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(int page = 1, int catId = 0)
         {
-            var viewModel = new BlogViewModel(_postRepository, page);
+            var viewModel = new BlogViewModel(_postRepository, page, catId);
             return View(viewModel);
         }
 

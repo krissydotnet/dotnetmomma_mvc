@@ -1,51 +1,25 @@
 ﻿@model IEnumerable<DotNetMommaShared.Models.Post>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PostedOn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostCategory.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Modified)
-        </th>
-        <th></th>
-    </tr>
 
+<div class="container">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostCategory.Name)
-            </td>
-            <td>
+    <div class="card blog-content">
+        <div class="card-body">
+            <h5 class="card-title">
                 @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortDescription)
-            </td>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.ActionLink(item.PostCategory.Name, "Index", new { page=1, catId = item.PostCategoryId }, new { @class = "card-link" })</h6>
+            <p class="card-text">
+                @Html.DisplayFor(modelItem => item.ShortDescription)  
+                @Html.ActionLink("continue...", "Details", new { id = item.Id }, new { @class = "card-link" })
+            </p>
 
+            <h6 class="card-subtitle mb-2 text-muted float-right">Posted: @Html.DisplayFor(modelItem => item.PostedOn)</h6>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Modified)
-            </td>
-            <td>
-
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-
-            </td>
-        </tr>
+           
+        </div>
+       
+    </div>
     }
-
-</table>
+</div>

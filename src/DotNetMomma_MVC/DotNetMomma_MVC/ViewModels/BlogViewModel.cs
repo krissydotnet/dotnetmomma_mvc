@@ -11,9 +11,9 @@ namespace DotNetMomma_MVC.ViewModels
     {
         private int pageSize = 10;
 
-        public BlogViewModel(PostRepository postRepository, int page = 1)
+        public BlogViewModel(PostRepository postRepository, int page = 1, int catId = 0)
         {
-            Posts = postRepository.Posts(page - 1, pageSize).ToList();
+            Posts = postRepository.Posts(page - 1, pageSize, catId).ToList();
             TotalPosts = postRepository.TotalPosts();
         }
         public List<Post> Posts { get; set; } 

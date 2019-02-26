@@ -350,6 +350,18 @@ a[data-toggle="collapse"] {
 .tool item-desc {
     line-height: 75px;
 }
+/* Blog Styles */
+.blog-content {
+    margin: 1rem;
+}
+    .blog-content .card-title {
+        color: #233656
+    }
+.blog-content .card-text {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+   
+}
 
 /* Tablet Settings */
 @media only screen and (max-width: 800px) {
