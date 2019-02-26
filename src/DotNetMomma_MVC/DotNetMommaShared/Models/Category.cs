@@ -26,6 +26,14 @@ namespace DotNetMommaShared.Models
         /// </summary>
         [Display(Name = "Category")]
         public string Name { get; set; }
+        public string UrlSlug
+        {
+            get
+            {
+                return Name.Replace(" ", "_").ToLower();
+            }
+        }
+
 
         public ICollection<Resource> Resources { get; set; }
     }

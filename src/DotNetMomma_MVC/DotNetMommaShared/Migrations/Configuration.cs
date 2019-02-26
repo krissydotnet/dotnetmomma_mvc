@@ -121,7 +121,26 @@ namespace DotNetMommaShared.Migrations
                 Id = 6,
                 Name = "Coding"
             });
-
+            context.Tags.AddOrUpdate(new Tag
+            {
+                Id = 1,
+                Name = "ASPNET"
+            });
+            context.Tags.AddOrUpdate(new Tag
+            {
+                Id = 2,
+                Name = "CSharp"
+            });
+            context.Tags.AddOrUpdate(new Tag
+            {
+                Id = 3,
+                Name = "HTML"
+            });
+            context.Tags.AddOrUpdate(new Tag
+            {
+                Id = 4,
+                Name = "JavaScript"
+            });
             context.Posts.AddOrUpdate(new Post
             {
                 Id = 1,

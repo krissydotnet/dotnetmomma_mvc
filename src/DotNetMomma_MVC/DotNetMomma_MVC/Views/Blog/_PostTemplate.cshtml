@@ -1,0 +1,58 @@
+﻿@model DotNetMommaShared.Models.Post
+
+<div class="post">
+    <div class="post-meta">
+        <div class="row">
+            <!-- Heading -->
+            <div class="post-title">
+                <h2>@Html.PostLink(Model)</h2>
+            </div>
+        </div>
+        <div class="post-sub">
+            <!-- Category -->
+            <div class="post-category">
+               
+                    <span>Category: </span>
+                    @Html.CategoryLink(Model.PostCategory)
+
+            </div>
+            <div class="post-tags">
+                <span>Tags:</span>
+                @foreach (var tag in Model.Tags)
+                {
+                    <div class="tags-div">
+                        @Html.TagLink(tag.Tag)
+                    </div>
+                }
+
+            </div>
+            <div class="posted-date">
+                @Model.PostedOn.ToConfigLocalTime()
+            </div>
+
+        </div>
+
+      
+        <div class="post-body">
+                @Html.Raw(Model.ShortDescription)
+        </div>
+        <div class="post-foot">
+            @Html.ActionLink("continue...", "Posts", "Blog",
+           new { id = Model.Id },
+        //new
+        //{
+        //    id = Model.Id,
+        //    year = Model.PostedOn.Year,
+        //    month = Model.PostedOn.Month,
+        //    day = Model.PostedOn.Day,
+        //    title = Model.UrlSlug
+        //},
+        new { title = "continue..." }
+    )
+        </div>
+        
+
+
+    </div>
+
+</div>

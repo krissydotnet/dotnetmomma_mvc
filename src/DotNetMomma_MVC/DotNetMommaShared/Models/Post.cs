@@ -46,7 +46,7 @@ namespace DotNetMommaShared.Models
 
         public string UrlSlug {
             get {
-                return Title.Replace(" ", "_");
+                return Title.Replace(" ", "_").ToLower();
             }
         }
 

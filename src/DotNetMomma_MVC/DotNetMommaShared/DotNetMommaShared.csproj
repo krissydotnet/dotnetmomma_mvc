@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201902252128026_Fixed UrlSlug.Designer.cs">
       <DependentUpon>201902252128026_Fixed UrlSlug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902261327113_UpdatedUrlSlug.cs" />
+    <Compile Include="Migrations\201902261327113_UpdatedUrlSlug.Designer.cs">
+      <DependentUpon>201902261327113_UpdatedUrlSlug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Category.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902252128026_Fixed UrlSlug.resx">
       <DependentUpon>201902252128026_Fixed UrlSlug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902261327113_UpdatedUrlSlug.resx">
+      <DependentUpon>201902261327113_UpdatedUrlSlug.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

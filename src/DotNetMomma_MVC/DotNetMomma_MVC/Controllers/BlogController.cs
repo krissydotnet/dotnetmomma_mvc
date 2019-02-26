@@ -12,7 +12,7 @@ namespace DotNetMomma_MVC.Controllers
     public class BlogController : BaseController
     {
         PostRepository _postRepository = null;
-        int pageSize = 10;
+        int pageSize = 5;
         public BlogController()
         {
             _postRepository = new PostRepository(Context);
@@ -20,13 +20,33 @@ namespace DotNetMomma_MVC.Controllers
         }
 
         // GET: Blog
-        public ActionResult Index(int page = 1, int catId = 0)
+        public ActionResult Index(int p = 1, int catId = 0)
         {
-            var viewModel = new BlogViewModel(_postRepository, page, catId);
+            int pageSize = 2;
+            var viewModel = new BlogViewModel(_postRepository, p, pageSize, catId);
+            ViewBag.Title = "Latests Posts";
+
             return View(viewModel);
         }
+        // GET: Category
+        public ActionResult Category(int p = 1, int category = 0)
+        {
+            int pageSize = 2;
+            var viewModel = new BlogViewModel(_postRepository, p, pageSize,  category);
+            ViewBag.Title = "Latest Posts";
 
-        public ActionResult Details(int? id)
+            return View("Index", viewModel);
+        }
+        // GET: Tag
+        public ActionResult Tag(int p = 1, int tag = 0)
+        {
+            var viewModel = new BlogViewModel(_postRepository, p, 0);
+            ViewBag.Title = "Latest Posts";
+
+            return View("Index", viewModel);
+        }
+
+        public ActionResult Posts(int? id)
         {
             if (id == null)
             {
