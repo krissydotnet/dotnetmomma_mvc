@@ -66,7 +66,6 @@ namespace DotNetMommaAdmin.Controllers
             {
 
                 var post = viewModel.Post;
-
                 _postRepository.Add(post);
 
                 TempData["Message"] = "Your post was successfully added.";

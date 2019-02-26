@@ -31,7 +31,7 @@ namespace DotNetMomma_MVC
             return helper.ActionLink(category.Name, "Category", "Blog",
                 new
                 {
-                    category = category.Id
+                    urlSlug = category.UrlSlug
                 },
                 new
                 {

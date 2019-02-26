@@ -123,6 +123,14 @@
     <Compile Include="Migrations\201902261327113_UpdatedUrlSlug.Designer.cs">
       <DependentUpon>201902261327113_UpdatedUrlSlug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902261740154_FixedUrlSlugInPostCategory.cs" />
+    <Compile Include="Migrations\201902261740154_FixedUrlSlugInPostCategory.Designer.cs">
+      <DependentUpon>201902261740154_FixedUrlSlugInPostCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902262130240_PutUrlSlugInPostCategories.cs" />
+    <Compile Include="Migrations\201902262130240_PutUrlSlugInPostCategories.Designer.cs">
+      <DependentUpon>201902262130240_PutUrlSlugInPostCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Category.cs" />
@@ -169,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902261327113_UpdatedUrlSlug.resx">
       <DependentUpon>201902261327113_UpdatedUrlSlug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902261740154_FixedUrlSlugInPostCategory.resx">
+      <DependentUpon>201902261740154_FixedUrlSlugInPostCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902262130240_PutUrlSlugInPostCategories.resx">
+      <DependentUpon>201902262130240_PutUrlSlugInPostCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

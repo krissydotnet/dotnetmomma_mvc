@@ -94,32 +94,38 @@ namespace DotNetMommaShared.Migrations
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 1,
-                Name = "Introduction"
+                Name = "Introduction",
+                UrlSlug = "intruction"
             });
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 2,
-                Name = "Travel"
+                Name = "Travel",
+                UrlSlug = "travel"
             });
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 3,
-                Name = "Parenting"
+                Name = "Parenting",
+                UrlSlug = "parenting"
             });
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 4,
-                Name = "Products"
+                Name = "Products",
+                UrlSlug = "products"
             });
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 5,
-                Name = "Learning"
+                Name = "Learning",
+                UrlSlug = "learning"
             });
             context.PostCategories.AddOrUpdate(new PostCategory
             {
                 Id = 6,
-                Name = "Coding"
+                Name = "Coding",
+                UrlSlug = "coding"
             });
             context.Tags.AddOrUpdate(new Tag
             {

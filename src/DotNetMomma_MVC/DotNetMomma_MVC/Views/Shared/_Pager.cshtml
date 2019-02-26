@@ -52,7 +52,7 @@
                 {
                     x = String.Concat("?", x);
                 }
-                <li class="page-item"><a class="page-link" href="@x">@i</a></li>
+                <li class="page-item @(currentPage == i ? "active" : "")"><a class="page-link" href="@x">@i</a></li>
             }
             
             <li class="page-item @(currentPage < totalPages ? "" : "disabled")">
