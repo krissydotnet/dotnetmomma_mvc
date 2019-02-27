@@ -16,7 +16,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse" id="navbarsHeader">
             <ul class="navbar-nav mr-auto navbar-custom">
                 <li class="nav-item  @(@ViewBag.Title == "Tools" ? "active" : "")">@Html.ActionLink("Tools", "Tools", "Resources", null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
                 <li class="nav-item @(@ViewBag.Title == "Training" ? "active" : "")">@Html.ActionLink("Training", "Training", "Resources", null, new { @class = "nav-link" })</li>
@@ -29,10 +29,17 @@
     </nav>
 
 
-    <div class="container body-content">
-        <div id="site_content">
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+            <div class="col-md-3 blog-sidebar-container">
+                @Html.Partial("_Search")
+                @Html.Action("Sidebar", "Blog")
+            </div>
 
-            @RenderBody()
+            @* Call the child action to render the sidebar *@
 
         </div>
         <hr />
@@ -48,6 +55,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
+    <script src="@Url.Content("~/Scripts/app.js")"></script>
 </body>
 </html>

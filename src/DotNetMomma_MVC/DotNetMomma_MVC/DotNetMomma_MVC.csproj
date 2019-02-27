@@ -364,10 +364,13 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Blog\_PostTemplate.cshtml" />
-    <Content Include="Views\Shared\_Pager.cshtml" />
-    <Content Include="Views\Shared\_Search.cshtml" />
-    <Content Include="Views\Shared\_Sidebars.cshtml" />
-    <Content Include="Views\Shared\_Categories.cshtml" />
+    <Content Include="Views\Blog\_Pager.cshtml" />
+    <Content Include="Views\Blog\_Search.cshtml" />
+    <Content Include="Views\Blog\_Sidebars.cshtml" />
+    <Content Include="Views\Blog\_Categories.cshtml" />
+    <Content Include="Views\Shared\_BlogLayout.cshtml" />
+    <Content Include="Views\Blog\_Tags.cshtml" />
+    <Content Include="Views\Blog\_LatestPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

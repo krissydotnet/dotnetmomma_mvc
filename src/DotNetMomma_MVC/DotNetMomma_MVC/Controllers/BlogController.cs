@@ -13,10 +13,13 @@ namespace DotNetMomma_MVC.Controllers
     {
         PostRepository _postRepository = null;
         PostCategoryRepository _categoryRepository = null;
+        TagRepository _tagRepository = null;
+
         public BlogController()
         {
             _postRepository = new PostRepository(Context);
             _categoryRepository = new PostCategoryRepository(Context);
+            _tagRepository = new TagRepository(Context);
         }
 
         // GET: Blog
@@ -95,10 +98,10 @@ namespace DotNetMomma_MVC.Controllers
             var viewModel = new BlogViewModel(_postRepository, s, "Search", p, pageSize);
             return View("Index", viewModel);
         }
-       
-        public ActionResult Sidebars()
+        [ChildActionOnly]
+        public PartialViewResult Sidebar()
         {
-            var widgetViewModel = new WidgetViewModel(_categoryRepository);
+            var widgetViewModel = new WidgetViewModel(_postRepository, _categoryRepository, _tagRepository);
             return PartialView("_Sidebars", widgetViewModel);
         }
 
