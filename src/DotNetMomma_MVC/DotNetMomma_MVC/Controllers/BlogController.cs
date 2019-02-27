@@ -12,7 +12,6 @@ namespace DotNetMomma_MVC.Controllers
     public class BlogController : BaseController
     {
         PostRepository _postRepository = null;
-        int pageSize = 5;
         public BlogController()
         {
             _postRepository = new PostRepository(Context);
@@ -28,21 +27,30 @@ namespace DotNetMomma_MVC.Controllers
 
             return View(viewModel);
         }
+
         // GET: Category
-        public ActionResult Category(int p = 1, string urlSlug = null)
+        public ActionResult Category(string category, int p = 1)
         {
             int pageSize = 5;
-            var viewModel = new BlogViewModel(_postRepository, urlSlug, p, pageSize);
-            ViewBag.Title = "Latest Posts for " + viewModel.PostCategory.Name;
+            var viewModel = new BlogViewModel(_postRepository, category, "Category", p, pageSize);
+            if (viewModel.PostCategory == null)
+                throw new HttpException(404, "Category not found");
+
+            ViewBag.Title = String.Format(@"Latest posts in category ""{0}""",
+                                viewModel.PostCategory.Name);
 
             return View("Index", viewModel);
         }
+
         // GET: Tag
-        public ActionResult Tag(int p = 1, int tag = 0)
+        public ActionResult Tag(string tag, int p = 1)
         {
             int pageSize = 5;
-            var viewModel = new BlogViewModel(_postRepository, p, pageSize, null);
-            ViewBag.Title = "Latest Posts";
+            var viewModel = new BlogViewModel(_postRepository, tag, "Tag", p, pageSize);
+            if (viewModel.Tag == null)
+                throw new HttpException(404, "Tag not found");
+            ViewBag.Title = String.Format(@"Latest posts with tag ""{0}""",
+                                viewModel.Tag.Name);
 
             return View("Index", viewModel);
         }
@@ -61,6 +69,17 @@ namespace DotNetMomma_MVC.Controllers
             post.Tags = post.Tags.OrderBy(t => t.Tag.Name).ToList();
 
             return View(post);
+        }
+
+        public ActionResult Search(string s, int p = 1)
+        {
+            int pageSize = 5;
+
+            ViewBag.Title = String.Format(@"Lists of posts found
+                        for search text ""{0}""", s);
+
+            var viewModel = new BlogViewModel(_postRepository, s, "Search", p, pageSize);
+            return View("Index", viewModel);
         }
 
     }

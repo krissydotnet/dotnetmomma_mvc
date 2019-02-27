@@ -91,7 +91,39 @@ namespace DotNetMommaShared.Data
             return Context.PostCategories
                         .FirstOrDefault(t => t.UrlSlug.Equals(categorySlug));
         }
-   
+
+        public IList<Post> PostsForTag(string tagSlug, int pageNo, int pageSize)
+        {
+            var posts = Context.Posts
+                              .Where(p => p.Published && p.Tags.Any(t => t.Tag.UrlSlug.Equals(tagSlug)))
+                              .OrderByDescending(p => p.PostedOn)
+                              .Skip(pageNo * pageSize)
+                              .Take(pageSize)
+                              .Include(p => p.PostCategory)
+                              .ToList();
+
+            var postIds = posts.Select(p => p.Id).ToList();
+
+            return Context.Posts
+                          .Where(p => postIds.Contains(p.Id))
+                          .OrderByDescending(p => p.PostedOn)
+                          .Include(r => r.Tags.Select(t => t.Tag))
+                          .ToList();
+        }
+
+        public int TotalPostsForTag(string tagSlug)
+        {
+            return Context.Posts
+                        .Where(p => p.Published && p.Tags.Any(t => t.Tag.UrlSlug.Equals(tagSlug)))
+                        .Count();
+        }
+
+        public Tag Tag(string tagSlug)
+        {
+            return Context.Tags
+                .FirstOrDefault(t => t.UrlSlug.Equals(tagSlug));
+        }
+
 
         public int TotalPosts() {
                 return Context.Posts
@@ -104,6 +136,31 @@ namespace DotNetMommaShared.Data
             return Context.Posts
                         .Where(p => p.Published && p.PostCategory.UrlSlug.Equals(categorySlug))
                         .Count();
+        }
+        public IList<Post> PostsForSearch(string search, int pageNo, int pageSize)
+        {
+            var posts = Context.Posts
+                                  .Where(p => p.Published && (p.Title.Contains(search) || p.PostCategory.Name.Equals(search) || p.Tags.Any(t => t.Tag.Name.Equals(search))))
+                                  .OrderByDescending(p => p.PostedOn)
+                                  .Skip(pageNo * pageSize)
+                                  .Take(pageSize)
+                                  .Include(p => p.PostCategory)
+                                  .ToList();
+
+            var postIds = posts.Select(p => p.Id).ToList();
+
+            return Context.Posts
+                  .Where(p => postIds.Contains(p.Id))
+                  .OrderByDescending(p => p.PostedOn)
+                  .Include(r => r.Tags.Select(t => t.Tag))
+                  .ToList();
+        }
+
+        public int TotalPostsForSearch(string search)
+        {
+            return Context.Posts
+                    .Where(p => p.Published && (p.Title.Contains(search) || p.PostCategory.Name.Equals(search) || p.Tags.Any(t => t.Tag.Name.Equals(search))))
+                    .Count();
         }
 
     }

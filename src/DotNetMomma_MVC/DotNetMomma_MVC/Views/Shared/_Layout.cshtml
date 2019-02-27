@@ -24,12 +24,13 @@
                 <li class="nav-item @(@ViewBag.Title == "Blog" ? "active" : "")">@Html.ActionLink("Blog", "Index", "Blog", null, new { @class = "nav-link" })</li>
 
             </ul>
-            
+
         </div>
     </nav>
-       
-  
+
+
     <div class="container body-content">
+        @Html.Partial("_Search")
         @RenderBody()
         <hr />
         <div class="row">
@@ -44,5 +45,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="@Url.Content("~/Scripts/app.js")"></script>
 </body>
 </html>

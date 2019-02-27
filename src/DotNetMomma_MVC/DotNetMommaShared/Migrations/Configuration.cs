@@ -130,22 +130,26 @@ namespace DotNetMommaShared.Migrations
             context.Tags.AddOrUpdate(new Tag
             {
                 Id = 1,
-                Name = "ASPNET"
+                Name = "ASPNET",
+                UrlSlug = "aspnet"
             });
             context.Tags.AddOrUpdate(new Tag
             {
                 Id = 2,
-                Name = "CSharp"
+                Name = "CSharp",
+                UrlSlug = "csharp"
             });
             context.Tags.AddOrUpdate(new Tag
             {
                 Id = 3,
-                Name = "HTML"
+                Name = "HTML",
+                UrlSlug = "html"
             });
             context.Tags.AddOrUpdate(new Tag
             {
                 Id = 4,
-                Name = "JavaScript"
+                Name = "JavaScript",
+                UrlSlug = "javascript"
             });
             context.Posts.AddOrUpdate(new Post
             {

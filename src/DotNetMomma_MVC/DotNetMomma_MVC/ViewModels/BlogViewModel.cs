@@ -18,13 +18,30 @@ namespace DotNetMomma_MVC.ViewModels
             //Posts = postRepository.GetList();
         }
 
-        public BlogViewModel(PostRepository postRepository, string categorySlug, int p, int pageSize)
+        public BlogViewModel(PostRepository postRepository, string text, string type, int p, int pageSize)
+   
         {
-
-            Posts = postRepository.PostsForCategory(categorySlug, p - 1, pageSize);
-            TotalPosts = postRepository.TotalPostsForCategory(categorySlug);
-            PostCategory = postRepository.PostCategory(categorySlug);
             PageSize = pageSize;
+            switch (type)
+            {
+                case "Tag":
+                    Posts = postRepository.PostsForTag(text, p - 1, 10);
+                    TotalPosts = postRepository.TotalPostsForTag(text);
+                    Tag = postRepository.Tag(text);
+                    break;
+                case "Category":
+                    Posts = postRepository.PostsForCategory(text, p - 1, pageSize);
+                    TotalPosts = postRepository.TotalPostsForCategory(text);
+                    PostCategory = postRepository.PostCategory(text);
+                    break;
+                default:
+                    Posts = postRepository.PostsForSearch(text, p - 1, 10);
+                    TotalPosts = postRepository.TotalPostsForSearch(text);
+                    Search = text;
+                    break;
+            }
+
+ 
         }
 
         public BlogViewModel(PostRepository postRepository, int page = 1, int pageSize = 1, string urlSlug = null)
@@ -37,7 +54,9 @@ namespace DotNetMomma_MVC.ViewModels
         
         public IList<Post> Posts { get; private set; }
         public PostCategory PostCategory { get; private set; }
+        public Tag Tag { get; private set; }
         public int TotalPosts { get; private set; }
         public int PageSize { get; set; }
+        public string Search { get; private set; }
     }
 }

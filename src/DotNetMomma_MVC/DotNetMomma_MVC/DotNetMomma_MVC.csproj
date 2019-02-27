@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201902112301391_InitialCreate.Designer.cs">
       <DependentUpon>201902112301391_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902262324299_AddUrlSlugToTags.cs" />
+    <Compile Include="Migrations\201902262324299_AddUrlSlugToTags.Designer.cs">
+      <DependentUpon>201902262324299_AddUrlSlugToTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
@@ -236,6 +240,7 @@
     <Content Include="Images\pexels-photo-169573.jpeg" />
     <Content Include="Images\pexels-photo-247819.jpeg" />
     <Content Include="Images\pexels-photo-546819.jpeg" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -359,6 +364,7 @@
     <Content Include="Views\Blog\Posts.cshtml" />
     <Content Include="Views\Blog\_PostTemplate.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,6 +390,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902112301391_InitialCreate.resx">
       <DependentUpon>201902112301391_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902262324299_AddUrlSlugToTags.resx">
+      <DependentUpon>201902262324299_AddUrlSlugToTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

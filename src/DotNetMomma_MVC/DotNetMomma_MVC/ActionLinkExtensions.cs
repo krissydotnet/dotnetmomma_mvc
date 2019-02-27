@@ -31,7 +31,7 @@ namespace DotNetMomma_MVC
             return helper.ActionLink(category.Name, "Category", "Blog",
                 new
                 {
-                    urlSlug = category.UrlSlug
+                    category = category.UrlSlug
                 },
                 new
                 {
@@ -40,7 +40,7 @@ namespace DotNetMomma_MVC
         }
         public static MvcHtmlString TagLink(this HtmlHelper helper, Tag tag)
         {
-            return helper.ActionLink(tag.Name, "Tag", "Blog", new { tag = tag.Id },
+            return helper.ActionLink(tag.Name, "Tag", "Blog", new { tag = tag.UrlSlug },
                 new
                 {
                     title = String.Format("See all posts in {0}", tag.Name)

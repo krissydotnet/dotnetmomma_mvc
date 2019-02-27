@@ -16,13 +16,7 @@ namespace DotNetMommaShared.Models
         public int Id { get; set; }
         [Display(Name ="Tag")]
         public string Name { get; set; }
-        public string UrlSlug
-        {
-            get
-            {
-                return Name.Replace(" ", "_").ToLower();
-            }
-        }
+        public string UrlSlug { get; set; }
         public string Description { get; set; }
 
         public ICollection<PostTags> Posts { get; set; }
