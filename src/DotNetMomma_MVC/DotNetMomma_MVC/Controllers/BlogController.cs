@@ -12,10 +12,11 @@ namespace DotNetMomma_MVC.Controllers
     public class BlogController : BaseController
     {
         PostRepository _postRepository = null;
+        PostCategoryRepository _categoryRepository = null;
         public BlogController()
         {
             _postRepository = new PostRepository(Context);
-            
+            _categoryRepository = new PostCategoryRepository(Context);
         }
 
         // GET: Blog
@@ -55,18 +56,31 @@ namespace DotNetMomma_MVC.Controllers
             return View("Index", viewModel);
         }
 
-        public ActionResult Posts(int? id)
+        //public ActionResult Posts(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var post = _postRepository.Get((int)id);
+        //    if (post == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    post.Tags = post.Tags.OrderBy(t => t.Tag.Name).ToList();
+
+        //    return View(post);
+        //}
+
+        public ViewResult Post(int year, int month, string title)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var post = _postRepository.Get((int)id);
+            var post = _postRepository.Post(year, month, title);
+
             if (post == null)
-            {
-                return HttpNotFound();
-            }
-            post.Tags = post.Tags.OrderBy(t => t.Tag.Name).ToList();
+                throw new HttpException(404, "Post not found");
+
+            if (post.Published == false && User.Identity.IsAuthenticated == false)
+                throw new HttpException(401, "The post is not published");
 
             return View(post);
         }
@@ -80,6 +94,12 @@ namespace DotNetMomma_MVC.Controllers
 
             var viewModel = new BlogViewModel(_postRepository, s, "Search", p, pageSize);
             return View("Index", viewModel);
+        }
+       
+        public ActionResult Sidebars()
+        {
+            var widgetViewModel = new WidgetViewModel(_categoryRepository);
+            return PartialView("_Sidebars", widgetViewModel);
         }
 
     }

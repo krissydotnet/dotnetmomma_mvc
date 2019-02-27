@@ -12,14 +12,14 @@ namespace DotNetMomma_MVC
     {
         public static MvcHtmlString PostLink(this HtmlHelper helper, Post post)
         {
-            return helper.ActionLink(post.Title, "Posts", "Blog",
-           new { id = post.Id },
-                //new
-                //{
-                //    year = post.PostedOn.Year,
-                //    month = post.PostedOn.Month,
-                //    title = post.UrlSlug
-                //},
+            return helper.ActionLink(post.Title, "Post", "Blog",
+                //new { id = post.Id },
+                new
+                {
+                    year = post.PostedOn.Year,
+                    month = post.PostedOn.Month,
+                    title = post.UrlSlug
+                },
                 new
                 {
                     title = post.Title

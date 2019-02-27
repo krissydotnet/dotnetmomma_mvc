@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201902262344007_AddUrlSlugToTags.Designer.cs">
       <DependentUpon>201902262344007_AddUrlSlugToTags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902270321465_AddUrlSlugToPosts.cs" />
+    <Compile Include="Migrations\201902270321465_AddUrlSlugToPosts.Designer.cs">
+      <DependentUpon>201902270321465_AddUrlSlugToPosts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Category.cs" />
@@ -190,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902262344007_AddUrlSlugToTags.resx">
       <DependentUpon>201902262344007_AddUrlSlugToTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902270321465_AddUrlSlugToPosts.resx">
+      <DependentUpon>201902270321465_AddUrlSlugToPosts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

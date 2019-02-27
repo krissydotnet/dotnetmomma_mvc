@@ -163,5 +163,14 @@ namespace DotNetMommaShared.Data
                     .Count();
         }
 
+        public Post Post(int year, int month, string titleSlug)
+        {
+         
+            return Context.Posts
+                    .Where(p => p.PostedOn.Year == year && p.PostedOn.Month == month && p.UrlSlug.Equals(titleSlug))
+                    .Include(p => p.PostCategory)
+                    .Include(r => r.Tags.Select(t => t.Tag))
+                    .SingleOrDefault();
+        }
     }
 }

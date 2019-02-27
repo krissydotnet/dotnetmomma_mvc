@@ -209,6 +209,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
     <Compile Include="ViewModels\ResourcesViewModel.cs" />
+    <Compile Include="ViewModels\WidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -361,10 +362,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Blog\Posts.cshtml" />
+    <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Blog\_PostTemplate.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\_Sidebars.cshtml" />
+    <Content Include="Views\Shared\_Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
