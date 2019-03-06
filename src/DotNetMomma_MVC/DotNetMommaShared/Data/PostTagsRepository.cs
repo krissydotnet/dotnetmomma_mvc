@@ -32,5 +32,12 @@ namespace DotNetMommaShared.Data
         {
             throw new NotImplementedException();
         }
+
+        public bool PostHasTagAlready(int postId, int tagId)
+        {
+            return Context.PostTags
+                .Any(r => r.PostId == postId &&
+                r.TagId == tagId);
+        }
     }
 }

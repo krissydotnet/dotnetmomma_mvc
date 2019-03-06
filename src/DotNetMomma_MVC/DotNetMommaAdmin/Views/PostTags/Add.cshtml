@@ -1,0 +1,40 @@
+﻿@model DotNetMommaAdmin.ViewModels.PostTagsAddViewModel
+
+@{
+    ViewBag.Title = "Add Post Tags";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@Model.Post.Title</h3>
+
+<p>Select a technology to add to this resource.</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PostTags</h4>
+        <hr />
+        @Html.ValidationSummary("The following errors were found;", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TagId, "TagId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TagId,
+                    Model.TagSelectListItems, "", new { @class = "form-control"})
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg margin-right">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+        <a href="@Url.Action("Edit", "Post", new { id = Model.PostId })" class="btn btn-warning btn-lg">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+        </a>
+
+    </div>
+}
+
+<div>
+ 
+</div>

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DotNetMommaShared.Data;
+using DotNetMommaShared.Models;
 
 namespace DotNetMommaAdmin.ViewModels
 {
     public class PostAddViewModel 
         : PostBaseViewModel
     {
+
 
         public PostAddViewModel()
         {

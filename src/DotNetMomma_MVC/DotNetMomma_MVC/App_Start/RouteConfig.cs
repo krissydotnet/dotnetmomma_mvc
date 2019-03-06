@@ -13,11 +13,6 @@ namespace DotNetMomma_MVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Login",
-                "Login",
-                new { controller = "Admin", action = "Login" }
-            );
 
             routes.MapRoute(
                 name: "Default",

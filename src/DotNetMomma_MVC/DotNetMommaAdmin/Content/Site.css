@@ -22,7 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
-
+/* Tag styles */ 
+.tags {
+    padding: 1rem;
+    display: flex;
+}
+.tag-container {
+    padding-right: 1.5rem;
+}
+.tag {
+    background-color: aqua;
+    border-radius: 5px;
+    padding: .5rem;
+    border: 1px solid black;
+}
 /* header styles */
 .my-header {
     background-color: #233656;

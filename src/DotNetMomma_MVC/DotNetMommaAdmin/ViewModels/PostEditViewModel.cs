@@ -14,6 +14,7 @@ namespace DotNetMommaAdmin.ViewModels
             get { return Post.Id; }
             set { Post.Id = value; }
         }
+        
 
     }
 }

@@ -175,10 +175,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\PostCategoryController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostTagsController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\ResourceTechnologiesController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="ViewModels\PostEditViewModel.cs" />
     <Compile Include="ViewModels\ResourcesEditViewModel.cs" />
     <Compile Include="ViewModels\ResourceTechnologiesAddViewModel.cs" />
+    <Compile Include="ViewModels\PostTagsAddViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -330,6 +333,13 @@
     <Content Include="Views\Post\Delete.cshtml" />
     <Content Include="Views\Post\_PostForm.cshtml" />
     <Content Include="Views\Post\Add.cshtml" />
+    <Content Include="Views\Post\_AddTags.cshtml" />
+    <Content Include="Views\PostTags\Add.cshtml" />
+    <Content Include="Views\PostTags\Delete.cshtml" />
+    <Content Include="Views\PostCategory\Index.cshtml" />
+    <Content Include="Views\PostCategory\Details.cshtml" />
+    <Content Include="Views\PostCategory\Edit.cshtml" />
+    <Content Include="Views\PostCategory\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

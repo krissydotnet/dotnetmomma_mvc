@@ -1,8 +1,8 @@
 ﻿@model DotNetMomma_MVC.ViewModels.BlogViewModel
 
-<div id="content">
+<div id="content" class="blog">
 
-    <h1>@ViewBag.Title</h1>
+    <h1><span class="fas fa-terminal"></span> @ViewBag.Title</h1>
     @Html.Partial("_Pager", Model)
     @if (Model.Posts.Count > 0)
     {

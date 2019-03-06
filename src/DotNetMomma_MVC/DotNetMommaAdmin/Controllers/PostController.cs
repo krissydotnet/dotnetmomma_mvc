@@ -15,12 +15,14 @@ namespace DotNetMommaAdmin.Controllers
         private PostRepository _postRepository = null;
         private TagRepository _tagRepository = null;
         private PostCategoryRepository _categoryRepository = null;
+        private PostTagsRepository _postTagsRepository = null;
 
         public PostController()
         {
             _postRepository = new PostRepository(Context);
             _tagRepository = new TagRepository(Context);
             _categoryRepository = new PostCategoryRepository(Context);
+            _postTagsRepository = new PostTagsRepository(Context);
         }
 
         // GET: Blog
@@ -66,7 +68,9 @@ namespace DotNetMommaAdmin.Controllers
             {
 
                 var post = viewModel.Post;
+                
                 _postRepository.Add(post);
+                _postTagsRepository.Add(new PostTags { PostId = post.Id, TagId = viewModel.TagId });
 
                 TempData["Message"] = "Your post was successfully added.";
 
@@ -81,7 +85,18 @@ namespace DotNetMommaAdmin.Controllers
             return View(viewModel);
 
         }
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult AddTag(PostAddViewModel viewModel)
+        {
 
+                var post = viewModel.Post;
+                var tag = new PostTags { PostId = post.Id, TagId = viewModel.TagId };
+                _postTagsRepository.Add(tag);
+
+                return RedirectToAction("Edit", new { id = post.Id });
+
+        }
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,6 +129,7 @@ namespace DotNetMommaAdmin.Controllers
                 var post = viewModel.Post;
 
                 _postRepository.Update(post);
+
 
                 TempData["Message"] = "Your resource was successfully added.";
 

@@ -355,7 +355,16 @@ a[data-toggle="collapse"] {
     padding-top: 1rem;
     display: flex;
 }
+.blog h1 {
 
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    line-height: 3rem;
+    padding: 1rem .5rem;
+
+}
 .blog-content {
     display: flex;
 }
@@ -371,10 +380,14 @@ a[data-toggle="collapse"] {
     font-size: .9rem;
     padding-bottom: 1rem;
 }
-.blog-sidebar h3 {
-    padding-left: 5rem;
-    font-size: 1.2rem;
-}
+    .blog-sidebar h3 {
+        padding-left: 2rem;
+        font-size: 1.2rem;
+        font-family: 'Roboto Mono', monospace;
+        color: black;
+        font-weight: bold;
+        line-height: 3rem;
+    }
 .blog-sidebar ul {
     list-style-type: none;
     padding-left: 20px;

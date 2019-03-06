@@ -1,0 +1,33 @@
+﻿@model DotNetMommaAdmin.ViewModels.PostBaseViewModel
+
+<div class="form-group">
+
+    <div class="col-md-2">
+        @Html.LabelFor(model => model.TagId, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+    </div>
+    <div class="col-md-8">
+
+
+        @if (Model.Post.Tags != null)
+        {
+            <div class="tags">
+                @foreach (var tag in Model.Post.Tags)
+                {<div class="tag-container">
+                        <span class="tag">@tag.Tag.Name</span>
+                        <a href="@Url.Action("Delete", "PostTags", new { postId = Model.Post.Id, id = tag.Id })" class="btn btn-danger btn-xs margin-right">
+                            <i class="fas fa-minus-circle"></i>
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+    <div class="col-md-2">
+        <a href="@Url.Action("Add", "PostTags", new { postid = Model.Post.Id })" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span> Add Tag
+        </a>
+    </div>
+</div>
