@@ -43,6 +43,7 @@ namespace DotNetMommaShared.Data
                 technologyList = technologies
                     .OrderBy(t => t.Name)
                     .ToList();
+                EntityCache.Add(TechnologyListKey, technologyList);
             }
             return technologyList;
 

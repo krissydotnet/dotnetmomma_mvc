@@ -46,6 +46,7 @@ namespace DotNetMommaShared.Data
                 resourceList = resources
                     .OrderBy(s => s.Name)
                     .ToList();
+                EntityCache.Add(ResourceListKey, resourceList);
             }
             return resourceList;
 

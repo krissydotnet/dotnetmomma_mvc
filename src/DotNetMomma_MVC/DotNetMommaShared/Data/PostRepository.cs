@@ -47,6 +47,7 @@ namespace DotNetMommaShared.Data
                 postList = posts
                     .OrderBy(p => p.PostedOn)
                     .ToList();
+                EntityCache.Add(PostListKey, postList);
             }
             return postList;
 

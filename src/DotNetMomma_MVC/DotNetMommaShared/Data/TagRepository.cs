@@ -44,6 +44,7 @@ namespace DotNetMommaShared.Data
                 tagList = tags
                     .OrderBy(t => t.Name)
                     .ToList();
+                EntityCache.Add(TagListKey, tagList);
             }
             return tagList;
 

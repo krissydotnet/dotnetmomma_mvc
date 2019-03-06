@@ -48,7 +48,7 @@ namespace DotNetMommaShared.Data
                 categoryList = category
                     .OrderBy(c => c.Name)
                     .ToList();
-                
+                EntityCache.Add(CategoryListKey, categoryList);
             }
             return categoryList;            
         }
