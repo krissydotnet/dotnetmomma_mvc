@@ -10,6 +10,8 @@ namespace DotNetMommaShared.Data
 {
     public class TagRepository : BaseRepository<Tag>
     {
+        const string TagListKey = "TagList";
+
         public TagRepository(Context context) : base(context)
         {
         }
@@ -29,16 +31,42 @@ namespace DotNetMommaShared.Data
 
         public override IList<Tag> GetList(bool includeRelatedEntities = true)
         {
-            var tags = Context.Tags.AsQueryable();
-            if (includeRelatedEntities)
+            var tagList = EntityCache.Get<List<Tag>>(TagListKey);
+
+            if (tagList == null)
             {
-                tags = tags
-                    .Include(t => t.Posts);
+                var tags = Context.Tags.AsQueryable();
+                if (includeRelatedEntities)
+                {
+                    tags = tags
+                        .Include(t => t.Posts);
+                }
+                tagList = tags
+                    .OrderBy(t => t.Name)
+                    .ToList();
             }
-            return tags
-                .OrderBy(t => t.Name)
-                .ToList();
+            return tagList;
+
         }
+
+        public override void Add(Tag entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(TagListKey);
+        }
+
+        public override void Update(Tag entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(TagListKey);
+        }
+
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(TagListKey);
+        }
+
         public bool TagAlreadyExists(int tagId, string tagName)
         {
             return Context.Technologies

@@ -11,6 +11,8 @@ namespace DotNetMommaShared.Data
     public class CategoryRepository
         : BaseRepository<Category>
     {
+        const string CategoryListKey = "CategoryList";
+
         public CategoryRepository(Context context) : base(context)
         {
         }
@@ -32,18 +34,41 @@ namespace DotNetMommaShared.Data
 
         public override IList<Category> GetList(bool includeRelatedEntities = true)
         {
-            var category = Context.Categories.AsQueryable();
-
-            if (includeRelatedEntities)
+            var categoryList = EntityCache.Get<List<Category>>(CategoryListKey);
+            if (categoryList == null)
             {
-                category = category
-                    .Include(c => c.Resources);
+                var category = Context.Categories.AsQueryable();
 
+                if (includeRelatedEntities)
+                {
+                    category = category
+                        .Include(c => c.Resources);
+
+                }
+                categoryList = category
+                    .OrderBy(c => c.Name)
+                    .ToList();
+                
             }
-            return category
-                .OrderBy(c => c.Name)
-                .ToList();
+            return categoryList;            
         }
+        public override void Add(Category entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(CategoryListKey);
+        }
+        public override void Update(Category entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(CategoryListKey);
+        }
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(CategoryListKey);
+        }
+
+
         public bool CategoryAlreadyExists(int categoryId, string categoryName)
         {
             return Context.Categories

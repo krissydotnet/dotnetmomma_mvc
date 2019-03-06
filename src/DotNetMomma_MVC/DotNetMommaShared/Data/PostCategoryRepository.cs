@@ -11,6 +11,8 @@ namespace DotNetMommaShared.Data
     public class PostCategoryRepository
         : BaseRepository<PostCategory>
     {
+        const string PostCategoryListKey = "PostCategoryList";
+
         public PostCategoryRepository(Context context) : base(context)
         {
         }
@@ -39,18 +41,42 @@ namespace DotNetMommaShared.Data
         }
         public override IList<PostCategory> GetList(bool includeRelatedEntities = true)
         {
-            var category = Context.PostCategories.AsQueryable();
-
-            if (includeRelatedEntities)
+            var categoryList = EntityCache.Get<List<PostCategory>>(PostCategoryListKey);
+            if (categoryList == null)
             {
-                category = category
-                    .Include(c => c.Posts);
+                var category = Context.PostCategories.AsQueryable();
 
+                if (includeRelatedEntities)
+                {
+                    category = category
+                        .Include(c => c.Posts);
+
+                }
+                categoryList = category
+                    .OrderBy(c => c.Name)
+                    .ToList();
             }
-            return category
-                .OrderBy(c => c.Name)
-                .ToList();
+            return categoryList;
         }
+
+        public override void Add(PostCategory entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(PostCategoryListKey);
+        }
+
+        public override void Update(PostCategory entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(PostCategoryListKey);
+        }
+
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(PostCategoryListKey);
+        }
+
         public bool CategoryAlreadyExists(int categoryId, string categoryName)
         {
             return Context.PostCategories

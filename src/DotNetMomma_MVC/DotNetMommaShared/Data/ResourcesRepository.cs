@@ -10,6 +10,8 @@ namespace DotNetMommaShared.Data
 {
     public class ResourcesRepository : BaseRepository<Resource>
     {
+        const string ResourceListKey = "ResourceList";
+
         public ResourcesRepository(Context context) : base(context)
         {
         }
@@ -31,16 +33,38 @@ namespace DotNetMommaShared.Data
 
         public override IList<Resource> GetList(bool includeRelatedEntities = true)
         {
-            var resources = Context.Resources.AsQueryable();
-            if (includeRelatedEntities)
+            var resourceList = EntityCache.Get<List<Resource>>(ResourceListKey);
+            if (resourceList == null)
             {
-                resources = resources
-                    .Include(r => r.Section)
-                    .Include(r => r.Category);
+                var resources = Context.Resources.AsQueryable();
+                if (includeRelatedEntities)
+                {
+                    resources = resources
+                        .Include(r => r.Section)
+                        .Include(r => r.Category);
+                }
+                resourceList = resources
+                    .OrderBy(s => s.Name)
+                    .ToList();
             }
-            return resources
-                .OrderBy(s => s.Name)
-                .ToList();
+            return resourceList;
+
+        }
+
+        public override void Add(Resource entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(ResourceListKey);
+        }
+        public override void Update(Resource entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(ResourceListKey);
+        }
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(ResourceListKey);
         }
 
         public bool LinkAlreadyExists(int resourceId, string resourceUrl, int sectionId)

@@ -10,6 +10,8 @@ namespace DotNetMommaShared.Data
 {
     public class PostRepository : BaseRepository<Post>
     {
+        const string PostListKey = "PostList";
+
         public PostRepository(Context context) : base(context)
         {
         }
@@ -31,19 +33,40 @@ namespace DotNetMommaShared.Data
 
         public override IList<Post> GetList(bool includeRelatedEntities = true)
         {
-            var posts = Context.Posts.AsQueryable();
-            if (includeRelatedEntities)
+            var postList = EntityCache.Get<List<Post>>(PostListKey);
+
+            if (postList == null)
             {
-                posts = posts
-                    .Include(p => p.PostCategory)
-                    .Include(p => p.Tags.Select(t => t.Tag));
+                var posts = Context.Posts.AsQueryable();
+                if (includeRelatedEntities)
+                {
+                    posts = posts
+                        .Include(p => p.PostCategory)
+                        .Include(p => p.Tags.Select(t => t.Tag));
+                }
+                postList = posts
+                    .OrderBy(p => p.PostedOn)
+                    .ToList();
             }
-            return posts
-                .OrderBy(p => p.PostedOn)
-                .ToList();
+            return postList;
+
         }
+        public override void Add(Post entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(PostListKey);
+        }
+        public override void Update(Post entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(PostListKey);
 
-
+        }
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(PostListKey);
+        }
 
         public IList<Post> Posts(int pageNo, int pageSize)
         {

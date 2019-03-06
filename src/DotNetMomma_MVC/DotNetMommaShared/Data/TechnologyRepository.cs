@@ -10,6 +10,8 @@ namespace DotNetMommaShared.Data
 {
     public class TechnologyRepository : BaseRepository<Technology>
     {
+        const string TechnologyListKey = "TechnologyList";
+
         public TechnologyRepository(Context context) : base(context)
         {
         }
@@ -29,16 +31,39 @@ namespace DotNetMommaShared.Data
 
         public override IList<Technology> GetList(bool includeRelatedEntities = true)
         {
-            var technologies = Context.Technologies.AsQueryable();
-            if (includeRelatedEntities)
+            var technologyList = EntityCache.Get<List<Technology>>(TechnologyListKey);
+            if (technologyList == null)
             {
-                technologies = technologies
-                    .Include(t => t.Resources);
+                var technologies = Context.Technologies.AsQueryable();
+                if (includeRelatedEntities)
+                {
+                    technologies = technologies
+                        .Include(t => t.Resources);
+                }
+                technologyList = technologies
+                    .OrderBy(t => t.Name)
+                    .ToList();
             }
-            return technologies
-                .OrderBy(t => t.Name)
-                .ToList();
+            return technologyList;
+
         }
+        public override void Add(Technology entity)
+        {
+            base.Add(entity);
+            EntityCache.Remove(TechnologyListKey);
+        }
+        public override void Update(Technology entity)
+        {
+            base.Update(entity);
+            EntityCache.Remove(TechnologyListKey);
+
+        }
+        public override void Delete(int id)
+        {
+            base.Delete(id);
+            EntityCache.Remove(TechnologyListKey);
+        }
+
         public bool TechnologyAlreadyExists(int techId, string techName)
         {
             return Context.Technologies
