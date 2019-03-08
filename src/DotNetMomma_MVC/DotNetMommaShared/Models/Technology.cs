@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DotNetMommaShared.Models
         /// </summary>
         [Display(Name="Technology")]
         public string Name { get; set; }
-
+        [JsonIgnore]
         public ICollection<ResourceTechnologies> Resources { get; set; }
     }
 }

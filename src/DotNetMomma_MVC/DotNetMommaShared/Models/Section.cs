@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace DotNetMommaShared.Models
 {
@@ -29,6 +30,7 @@ namespace DotNetMommaShared.Models
         [Required, StringLength(25)]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public ICollection<Resource> Resources { get; set; }
     }
 }

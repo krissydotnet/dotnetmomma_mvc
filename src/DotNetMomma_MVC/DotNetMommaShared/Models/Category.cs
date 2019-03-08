@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,8 +28,7 @@ namespace DotNetMommaShared.Models
         [Display(Name = "Category")]
         public string Name { get; set; }
 
-
-
+        [JsonIgnore]
         public ICollection<Resource> Resources { get; set; }
     }
 }
