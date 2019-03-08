@@ -1,0 +1,501 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /* font-family: "Lucida Grande"; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/* header styles */
+.nav-custom {
+    background-color: #233656;
+    color: #fff;
+}
+    .nav-custom .navbar-brand {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        font-family: 'Permanent Marker', cursive;
+    }
+.navbar-custom {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+}
+    .navbar-custom li {
+        padding: 0 1rem;
+    }
+
+
+/* main styles */
+
+.main-header {
+    margin-top: 25px;
+    background-image: url("../Images/banner-background.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+
+    .main-header .image-content {
+        flex-basis: 25%;
+        float: left;
+        padding-right: 3rem;
+        align-self: center;
+        padding-left: 3rem;
+    }
+
+        .main-header .image-content img {
+            width: 200px;
+            opacity: 0.8;
+        }
+    .main-header-title {
+        align-self: center;
+    }
+    .main-header-title h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    font-family: 'Luckiest Guy', cursive;
+    color: #000066;
+    }
+
+    .main-header-title .sub-heading  {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.5rem;
+        color: black;
+        font-weight: bold;
+        line-height: 3rem;
+       
+    }
+
+    /* Menu Items */
+
+
+/* page header styles */
+header .sub-heading {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    line-height: 3rem;
+    padding: 1rem .5rem;
+}
+
+.section-heading {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    line-height: 2rem;
+    opacity: 1;
+    padding: 1rem .5rem;
+}
+
+    .section-heading .fas {
+        margin-right: 10px;
+    }
+/* Sidebar Styles */
+#sidebar {
+    min-width: 240px;
+    max-width: 240px;
+}
+
+    #sidebar.active {
+        margin-left: -240px;
+    }
+
+#sidebar {
+    min-width: 240px;
+    max-width: 240px;
+    min-height: 100vh;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+/* Side Bar */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 5rem 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    
+}
+
+    .sidebar .nav-link .feather {
+        margin-right: 4px;
+        color: #999;
+    }
+
+    .sidebar .nav-link.active {
+        color: #007bff;
+    }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+/*  Styling for the side bar */
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+    #sidebar .sidebar-header {
+        padding: 1rem;
+        background: #6d7fcc;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1rem;
+        display: block;
+    }
+
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+    #sidebar ul li.active > a, a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+    }
+
+
+
+#menu-btn {
+    display: none;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+}
+
+
+
+
+/* Tools */
+
+
+.tools-wrapper {
+    padding-bottom: 50px;
+}
+
+    .tools-wrapper p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+    }
+
+
+
+
+.tool-header-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #415B76;
+    border-radius: 1rem;
+    border: 2px solid #415B76;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    color: #EEF4F2;
+}
+
+.tool-header-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tool-header .fas {
+    margin-right: .7rem;
+}
+
+.tool-header, .links-wrapper h1 {
+    font-size: 1rem;
+    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Luckiest Guy', cursive; */
+    letter-spacing: .2rem;
+}
+
+.tool-header {
+    /* padding-top: 50px; */
+    flex-basis: 90%;
+}
+
+.tool-button {
+    flex-basis: 10%;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.toollist {
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+    border: 2px solid #415B76;
+    background-color: #CDD6D5;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: .5rem;
+}
+
+.open-toollist {
+    display: block;
+}
+
+.tool {
+    /* vertical-align: top; */
+    height: 75px;
+    flex-basis: 48%;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.toollist .icons {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.tool img {
+    width: 200px;
+    display: none;
+}
+
+.tool a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+}
+
+    .tool a:visited {
+        color: black;
+    }
+
+    .tool a:hover {
+        /* color: white; */
+        color: #415B76;
+    }
+
+.tool item-desc {
+    line-height: 75px;
+}
+/* Blog Styles */
+#search-form {
+    padding-top: 1rem;
+    display: flex;
+}
+.blog h1 {
+
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    line-height: 3rem;
+    padding: 1rem .5rem;
+
+}
+.blog-content {
+    display: flex;
+}
+.blog-body {
+    flex-basis: 80%;
+}
+.blog-sidebar-container {
+    background-color: lightgray;
+    padding: .5rem 1.2rem;
+}
+.blog-sidebar {
+    flex-basis: 20%;
+    font-size: .9rem;
+    padding-bottom: 1rem;
+}
+    .blog-sidebar h3 {
+        padding-left: 2rem;
+        font-size: 1.2rem;
+        font-family: 'Roboto Mono', monospace;
+        color: black;
+        font-weight: bold;
+        line-height: 3rem;
+    }
+.blog-sidebar ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+    .blog-sidebar i {
+        padding-right: 5px;
+        color: #233656;
+    }
+    .blog-sidebar li {
+        padding-bottom: .2rem;
+    }
+
+
+.post {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: lightgrey;
+}
+.post-meta {
+    padding: .5rem;
+}
+.post-title {
+    color: #233656;
+    
+}
+    .post-title h2 {
+        font-size: 1.3rem;
+    }
+.post-sub  {
+    display: flex;
+    font-size: .9rem;
+    opacity: .5;
+}
+.post-category {
+    flex: 1;
+}
+.post-tags {
+    flex: 1;
+    display: flex;
+}
+.tags-div {
+    padding-left: 1rem;
+}
+.posted-date {
+    flex: 1;
+    text-align: right;
+}
+.post-body {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+.post-foot {
+    font-size: 1.1rem;
+}
+
+/* Tablet Settings */
+@media only screen and (max-width: 800px) {
+    .my-logo {
+        font-size: 1.5rem;
+    }
+    .my-nav {
+        font-size: .9rem;
+    }
+    .main-header {
+        margin-top: .7rem;
+        height: 150px;
+    }
+
+        .main-header .image-content {
+            padding-left: 1.8rem;
+            padding-right: 1.8rem;
+        }
+
+            .main-header .image-content img {
+                width: 150px;
+            }
+
+    .main-header-title h1 {
+        font-size: 1.6rem;
+    }
+
+    .main-header-title .sub-heading {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+}
+/* Phone Settings */
+@media only screen and (max-width: 450px) {
+
+    .main-header {
+        height: 120px;
+    }
+
+        .main-header .image-content {
+            display: none;
+        }
+
+    .main-header-title {
+        text-align: center;
+    }
+
+        .main-header-title h1 {
+            font-size: 1.2rem;
+        }
+
+        .main-header-title .sub-heading {
+            font-size: .8rem;
+            line-height: 1.3rem;
+        }
+}

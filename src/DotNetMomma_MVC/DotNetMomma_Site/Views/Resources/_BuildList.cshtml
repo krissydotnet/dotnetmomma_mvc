@@ -1,0 +1,25 @@
+﻿@model DotNetMommaShared.Models.Category
+
+
+
+
+    <div class="tool-list-wrapper">
+        <div class="tool-header-wrapper  tool-header-open">
+
+            <div class="tool-header">
+                <h2><span class="fas fa-palette icons"></span>@Model.Name</h2>
+            </div>
+          
+        </div>
+        <div class="toollist open-toollist">
+
+           @foreach (var item in Model.Resources)
+            {
+                <div class="tool">
+                    <a href="@item.URL" target="_blank">
+                        <p class="description">@item.Name</p>
+                    </a>
+                </div>
+            }*
+        </div>
+    </div>

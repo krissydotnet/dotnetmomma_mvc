@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Luckiest+Guy|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav-custom">
+        @Html.ActionLink("DotNetMomma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsHeader">
+            <ul class="navbar-nav mr-auto navbar-custom">
+                <li class="nav-item  @(@ViewBag.Title == "Tools" ? "active" : "")">@Html.ActionLink("Tools", "Tools", "Resources", null, new { @class = "nav-link" })<span class="sr-only">(current)</span></li>
+                <li class="nav-item @(@ViewBag.Title == "Training" ? "active" : "")">@Html.ActionLink("Training", "Training", "Resources", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(@ViewBag.Title == "Kids" ? "active" : "")">@Html.ActionLink("Kids", "Kids", "Resources", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(@ViewBag.Title == "Blog" ? "active" : "")">@Html.ActionLink("Blog", "Index", "Blog", null, new { @class = "nav-link" })</li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+            <div class="col-md-3 blog-sidebar-container">
+                @Html.Partial("_Search")
+                @Html.Action("Sidebar", "Blog")
+            </div>
+
+            @* Call the child action to render the sidebar *@
+
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-2"></div>
+            <footer class="col-md-10">
+                <p>&copy; @DateTime.Now.Year - DotNetMomma</p>
+            </footer>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="@Url.Content("~/Scripts/app.js")"></script>
+</body>
+</html>

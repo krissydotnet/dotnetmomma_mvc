@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DotNetMommaShared.Models.Category>
+
+<div class="wrapper">
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h4>@ViewBag.Title</h4>
+        </div>
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+
+                @foreach (var category in Model)
+                {
+                    if (category.Resources.Count > 0)
+                    {
+
+                <li class="nav-item">
+                    <a href="@Url.Action(@ViewBag.Title, "Resources", new { id = category.Id })" class="nav-link">
+                        <i class="fa fa-home"></i>
+                        @category.Name
+                    </a>
+                    
+           
+
+                </li>
+
+                    }
+
+                }
+
+                
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+</div>
+
+
+
+

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DotNetMomma_Site.Models.Resource>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Resources</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@Html.Partial("_BuildResourceList")

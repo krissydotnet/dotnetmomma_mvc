@@ -1,0 +1,62 @@
+﻿@model DotNetMomma_Site.ViewModels.ResourcesViewModel
+
+
+@{
+
+}
+
+
+<div class="row">
+
+    <div class="col-md-2">
+
+        @Html.Partial("_SideNavBar", Model.Categories)
+    </div>
+    <div class="col-md-10">
+        <section>
+            <header>
+                <div class="section-heading">
+                    <span class="fas fa-terminal"></span>Only you can control your future. - Dr. Seuss
+                </div>
+            </header>
+
+
+
+            <div class="tools-wrapper">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        @{
+                            var categories = Model.Categories;
+                            if (ViewBag.CategoryId != 0)
+                            {
+                                categories = categories.Where(c => c.Id == ViewBag.CategoryId).ToList();
+                            }
+                        }
+                        @foreach (var category in categories)
+                        {
+                            if (category.Resources.Count > 0)
+                            {
+                                <div class="col-md-12">
+                                    @Html.Partial("_BuildList", category)
+                                </div>
+                            }
+
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </div>
+
+</div>
+
+
+

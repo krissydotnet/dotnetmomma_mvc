@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="main-header">
+    <div class="image-content"><img src="~/Images/pexels-photo-169573.jpeg" alt="laptop"></div>
+    <div class="main-header-title">
+        <h1>Welcome to DotNetMomma</h1>
+        <div class="sub-heading">
+            Your one-stop resource for learning how to code
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 ">
+        <div class="card shadow-sm text-center">
+            <img src="~/Images/pexels-photo-546819.jpeg" class="card-img-top" alt="Computer" />
+            <div class="card-body">
+                <h5 class="card-title">Tools</h5>
+                <p class="card-text">Most commonly used tools</p>
+                <a class="btn btn-primary" href="@Url.Action("Tools","Resources")">Go &raquo;</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center">
+            <img src="~/Images/pexels-photo-247819.jpeg" class="card-img-top" alt="Learning" />
+            <div class="card-body">
+                <h5 class="card-title">Training</h5>
+                <p class="card-text">Training resources available</p>
+                <a class="btn btn-primary" href="@Url.Action("Training","Resources")">Go &raquo;</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center">
+            <img src="~/Images/pexels-photo-1571872.jpeg" class="card-img-top" alt="Kids" />
+            <div class="card-body">
+                <h5 class="card-title">Kids</h5>
+                <p class="card-text">Resources for teaching kids how to code.</p>
+                <a class="btn btn-primary" href="@Url.Action("Kids","Resources")">Go &raquo;</a>
+            </div>
+        </div>
+    </div>
+
+</div>

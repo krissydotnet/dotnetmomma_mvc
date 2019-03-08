@@ -1,0 +1,63 @@
+﻿@model DotNetMomma_Site.ViewModels.BlogViewModel
+
+
+@* Read the current page and total pages *@
+
+@{
+    var currentPage = ViewContext.RequestContext.HttpContext.Request["p"] != null
+      ? int.Parse(ViewContext.RequestContext.HttpContext.Request["p"])
+      : 1;
+
+    var totalPages = Math.Ceiling((double)Model.TotalPosts / Model.PageSize);
+}
+
+@* Check do we need to display pagination links *@
+
+@if (currentPage > 1 || currentPage < totalPages)
+{
+    var p = string.Format("p={0}", currentPage - 1);
+    var n = string.Format("p={0}", currentPage + 1);
+
+    @* If the view is rendered for "search" action append the pagination value with "&" *@
+
+    if (ViewContext.RouteData.Values["action"].ToString()
+      .Equals("search", StringComparison.OrdinalIgnoreCase))
+    {
+        var s = String.Format("?s={0}", ViewContext.RequestContext.HttpContext.Request.QueryString["s"]);
+        p = String.Format("{0}&{1}", s, p);
+        n = String.Format("{0}&{1}", s, n);
+    }
+    else
+    {
+        p = String.Concat("?", p);
+        n = String.Concat("?", n);
+    }
+
+    <!--pagination links-->
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            <li class="page-item @(currentPage > 1 ? "" : "disabled")">
+                <a class="page-link previous" href="@p" title="Previous" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            @for(int i = 1; i <= totalPages; i++){
+                var x = string.Format("p={0}", i);
+                if (ViewContext.RouteData.Values["action"].ToString()
+                        .Equals("search", StringComparison.OrdinalIgnoreCase))
+                {
+                    var s = String.Format("?s={0}", ViewContext.RequestContext.HttpContext.Request.QueryString["s"]);
+                    x = String.Format("{0}&{1}", s, x);
+                }
+                else
+                {
+                    x = String.Concat("?", x);
+                }
+                <li class="page-item @(currentPage == i ? "active" : "")"><a class="page-link" href="@x">@i</a></li>
+            }
+            
+            <li class="page-item @(currentPage < totalPages ? "" : "disabled")">
+                <a class="page-link next" title="Next" href="@n" >Next</a>
+            </li>
+        </ul>
+    </nav>
+}
