@@ -18,7 +18,7 @@ namespace DotNetMommaShared.Models
         [Display(Name = "Category")]
         public string Name { get; set; }
         public string UrlSlug { get; set; }
-
+        [JsonIgnore]
         public ICollection<Post> Posts{ get; set; }
 
     }

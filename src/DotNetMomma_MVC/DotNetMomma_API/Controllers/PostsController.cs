@@ -1,4 +1,5 @@
-﻿using DotNetMommaShared.Data;
+﻿using DotNetMomma_API.Dto;
+using DotNetMommaShared.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace DotNetMomma_API.Controllers
 
         public IHttpActionResult Get()
         {
-            return Ok(_postRepository.GetList(includeRelatedEntities: false));
+
+            return Ok(_postRepository.GetList());
         }
 
         public IHttpActionResult Get(int id)

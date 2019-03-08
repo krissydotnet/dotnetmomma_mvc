@@ -1,4 +1,5 @@
-﻿using DotNetMommaShared.Data;
+﻿using DotNetMomma_API.Dto;
+using DotNetMommaShared.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,19 @@ namespace DotNetMomma_API.Controllers
 
         public IHttpActionResult Get()
         {
-            return Ok(_resourcesRepository.GetList());
+            var resources = _resourcesRepository.GetList();
+            var resourceDto = resources.Select(e => new ResourceListDto()
+            {
+                Id = e.Id,
+                Name = e.Name,
+                URL = e.URL,
+                Description = e.Description,
+                Section = e.Section.Name,
+                Category = e.Category.Name,
+                Technologies = e.Technologies
+            }).ToList();
+
+            return Ok(resourceDto);
         }
 
         public IHttpActionResult Get(int id)
